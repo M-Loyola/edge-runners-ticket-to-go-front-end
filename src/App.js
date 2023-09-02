@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import { Menu } from "antd";
+import { NavLink, Outlet } from "react-router-dom";
 import './App.css';
+
+const menuItems = [
+  { key: "home", label: "Home", link: "/" },
+  // { key: "done", label: "Done List", link: "/done" },
+  // { key: "help", label: "Help", link: "/help" },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Menu mode="horizontal" className="nav-bar">
+        {menuItems.map(item => (
+          <Menu.Item key={item.key}>
+            <NavLink to={item.link}>{item.label}</NavLink>
+          </Menu.Item>
+        ))}
+      </Menu>
+      <Outlet />
+    </>
   );
 }
 
