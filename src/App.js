@@ -1,6 +1,6 @@
 import { Menu } from "antd";
 import { NavLink, Outlet } from "react-router-dom";
-import './App.css';
+import "./App.css";
 
 const menuItems = [
   { key: "home", label: "Home", link: "/" },
@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Menu mode="horizontal" className="nav-bar">
-        {menuItems.map(item => (
+        {menuItems.map((item) => (
           <Menu.Item key={item.key}>
             <NavLink to={item.link}>{item.label}</NavLink>
           </Menu.Item>
