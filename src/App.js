@@ -11,7 +11,7 @@ const menuItems = [
 ];
 //test fetch api(backend integration)
 const fetchData = async () => {
-  const fetch = await api.get("/movies");
+  await api.get("/movies");
 };
 
 function App() {
