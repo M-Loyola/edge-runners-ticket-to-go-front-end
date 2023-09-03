@@ -1,11 +1,19 @@
 import axios from "axios";
 
-const api = axios.create(
+const LOCAL_BASE_URL = "http://localhost:8080/";
+
+export const api = axios.create(
   {
-    // qa: {
-    baseURL: "https://ex-ticket-to-go-back-end-qa.up.railway.app/",
-    // },
-  }
-  // [process.env.REACT_APP_ENV]
+    dev: {
+      baseURL: LOCAL_BASE_URL,
+    },
+    qa: {
+      baseURL: "https://ex-ticket-to-go-back-end-qa.up.railway.app/",
+    },
+    prod: {
+      baseURL: "https://ex-ticket-to-go-back-end-production.up.railway.app",
+    },
+  }[process.env.REACT_APP_ENV || "dev"]
 );
+console.log(process.env.REACT_APP_ENV);
 export default api;
