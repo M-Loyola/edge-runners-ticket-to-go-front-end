@@ -3,7 +3,7 @@ import * as apiConfig from "../api/apiConfig";
 export const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
-      const response = await apiConfig.getMovies();
+      await apiConfig.getMovies();
     };
     fetchData();
     console.log(fetchData);
