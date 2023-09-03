@@ -14,23 +14,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
-    children: [ //TODO: Remove comments once pages are setup
+    children: [
       {
         index: true, 
         element: <Home />
       },
-      // {
-      //   path:  "/done", 
-      //   element: <DoneList />
-      // },
-      // {
-      //   path:  "/done/:id", 
-      //   element: <TodoItemDetail />
-      // },
-      // {
-      //   path: "/help",
-      //   element: <HelpPage />
-      // }
     ]
   }
 ]);
