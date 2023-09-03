@@ -8,18 +8,19 @@ const menuItems = [
   // { key: "help", label: "Help", link: "/help" },
 ];
 
-return (
-  <>
-    <Menu mode="horizontal" className="nav-bar">
-      {menuItems.map((item) => (
-        <Menu.Item key={item.key}>
-          <NavLink to={item.link}>{item.label}</NavLink>
-        </Menu.Item>
-      ))}
-    </Menu>
-    <Outlet/>
-  </>
-);
+const App = () => {
+  return (
+    <>
+      <Menu mode="horizontal" className="nav-bar">
+        {menuItems.map((item) => (
+          <Menu.Item key={item.key}>
+            <NavLink to={item.link}>{item.label}</NavLink>
+          </Menu.Item>
+        ))}
+      </Menu>
+      <Outlet />
+    </>
+  );
 }
 
 export default App;
