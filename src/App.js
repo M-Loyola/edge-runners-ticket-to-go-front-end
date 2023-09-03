@@ -2,7 +2,7 @@ import { Menu } from "antd";
 import { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import "./App.css";
-import api from "./api/api";
+import * as apiConfig from "./api/apiConfig";
 
 const menuItems = [
   { key: "home", label: "Home", link: "/" },
@@ -11,8 +11,8 @@ const menuItems = [
 ];
 //test fetch api(backend integration)
 const fetchData = async () => {
-  await api.get("/movies");
-};
+  await apiConfig.getMovies();
+}
 
 const App = () => {
   useEffect(() => {
