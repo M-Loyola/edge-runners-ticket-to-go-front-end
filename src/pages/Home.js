@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { api } from "../api/api";
+import * as apiConfig from "../api/apiConfig"
 export const Home = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     useEffect(() => {
         const fetchData = async () => {
-            const response = await api;
+            const response = await apiConfig.getMovies();
             // const response = await api.getTodoTasks();
             // dispatch(resetTodoList(response.data));
         }
