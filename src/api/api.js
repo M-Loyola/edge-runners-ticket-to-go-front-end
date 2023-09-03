@@ -1,6 +1,8 @@
 import axios from "axios";
 
+const LOCAL_BASE_URL = 'http://localhost:8080/';
+const baseURLByEnv = process.env.REACT_APP_BASE_URL || LOCAL_BASE_URL;
+
 export const api = axios.create({
-    // baseURL: 'https://64ee17611f87218271424c04.mockapi.io/',
-    // baseURL: 'http://localhost:8080',
+    baseURL: baseURLByEnv,
 });
