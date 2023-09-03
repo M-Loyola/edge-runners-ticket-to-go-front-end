@@ -1,9 +1,8 @@
 import { Menu } from "antd";
+import { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import "./App.css";
-import axios from "axios";
 import api from "./api/api";
-import { useEffect } from "react";
 
 const menuItems = [
   { key: "home", label: "Home", link: "/" },
