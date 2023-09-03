@@ -9,10 +9,9 @@ const menuItems = [
   // { key: "done", label: "Done List", link: "/done" },
   // { key: "help", label: "Help", link: "/help" },
 ];
-
+//test fetch api(backend integration)
 const fetchData = async () => {
   const fetch = await api.get("/movies");
-  console.log(fetch);
 };
 
 function App() {

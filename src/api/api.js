@@ -10,6 +10,10 @@ export const api = axios.create(
     qa: {
       baseURL: "https://ex-ticket-to-go-back-end-qa.up.railway.app/",
     },
+    prod: {
+      baseURL: "https://ex-ticket-to-go-back-end-production.up.railway.app",
+    },
   }[process.env.REACT_APP_ENV || "dev"]
 );
+console.log(process.env.REACT_APP_ENV);
 export default api;
