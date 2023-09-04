@@ -1,23 +1,11 @@
-import { Menu } from "antd";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import "./App.css";
-
-const menuItems = [
-  { key: "home", label: "Home", link: "/" },
-  // { key: "done", label: "Done List", link: "/done" },
-  // { key: "help", label: "Help", link: "/help" },
-];
+import MenuNav from "./components/MenuNav";
 
 const App = () => {
   return (
     <>
-      <Menu mode="horizontal" className="nav-bar">
-        {menuItems.map((item) => (
-          <Menu.Item key={item.key}>
-            <NavLink to={item.link}>{item.label}</NavLink>
-          </Menu.Item>
-        ))}
-      </Menu>
+      <MenuNav/>
       <Outlet />
     </>
   );
