@@ -1,8 +1,10 @@
 import { EyeOutlined, HomeOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
+import Search from "antd/es/input/Search";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as CinemaIcon } from "../assets/icons/cinema.svg";
+import "../assets/styles/MenuNav.css";
 
 const menuItems = [
     {
@@ -26,14 +28,28 @@ const menuItems = [
 ];
 const MenuNav = () => {
     const [current] = useState('home');
+    const onSearch = (value) => console.log(value);
     return (
-        <Menu selectedKeys={[current]} mode="horizontal" className="nav-bar">
-            {menuItems.map((item) => (
-                <Menu.Item key={item.key} icon={item.icon}>
-                    <NavLink to={item.link}>{item.label}</NavLink>
-                </Menu.Item>
-            ))}
-        </Menu>
+        <div className="header-container">
+            <div className="menu-container">
+                <Menu selectedKeys={[current]} mode="horizontal" className="nav-bar">
+                    {menuItems.map((item) => (
+                        <Menu.Item key={item.key} icon={item.icon}>
+                            <NavLink to={item.link}>{item.label}</NavLink>
+                        </Menu.Item>
+                    ))}
+                </Menu>
+            </div>
+            <div className="search-container">
+                <Search
+                    placeholder="input search text"
+                    allowClear
+                    enterButton="Search"
+                    size="large"
+                    onSearch={onSearch}
+                />
+            </div>
+        </div>
     );
 }
 
