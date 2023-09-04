@@ -20,10 +20,10 @@ const menuItems = [
         link: "/cinemas"
     },
     {
-        key: "help",
+        key: "movieList",
         label: "Add Movie List",
         icon: <EyeOutlined />,
-        link: "/help"
+        link: "/movieList"
     },
 ];
 const MenuNav = () => {
