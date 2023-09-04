@@ -36,6 +36,8 @@ export const NextWeekRelease = () => {
 
   return (
     <>
+    <h2>"Unleash Your Cinematic Journey: Stream, Watch, Repeat!"</h2>
+    <span>Reserve your ticket now!</span>
     <div className="carousel-banner">
         <h1 className="banner-text">Unlocking Next Week's Release!</h1>
       </div>
