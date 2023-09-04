@@ -40,6 +40,9 @@ const MenuNav = () => {
                     ))}
                 </Menu>
             </div>
+            <div className="ticket-container">
+                <div className="ticket">Ticket To Go</div>
+            </div>
             <div className="search-container">
                 <Search
                     placeholder="input search text"
