@@ -26,8 +26,7 @@ export const NextWeekRelease = () => {
   const ref = React.useRef(StackedCarousel);
 
   useEffect(() => {
-    setInterval(stuff, 100000);
-    console.log();
+    setInterval(stuff, 5000);
   }, []);
 
   function stuff() {
@@ -50,11 +49,11 @@ export const NextWeekRelease = () => {
               <StackedCarousel
                 ref={carouselRef}
                 slideComponent={Slide}
-                slideWidth={500}
+                slideWidth={300}
                 carouselWidth={width}
                 data={data}
                 maxVisibleSlide={3}
-                disableSwipe
+                disableSwipe={false}
                 transitionTime={450}
               />
             );
