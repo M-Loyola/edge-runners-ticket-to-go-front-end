@@ -1,16 +1,4 @@
-.card .card-button {
-    position: absolute;
-    top: 43%;
-    box-shadow: none;
-    border-radius: 5px;
-    width: 36px;
-    height: 36px;
-    background-color: transparent;
-  }
-  .card .card-button.right {
-    right: 0%;
-  }
-  .react-stacked-center-carousel {
+.react-stacked-center-carousel {
     padding: 20px 0;
   }
   
@@ -61,10 +49,9 @@
   }
   
   .card-card .cover-image {
-    /* object-fit: cover; */
     max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+    height: auto;
+    border-radius: 20px;
   }
   
   .card-card .cover {
@@ -86,20 +73,14 @@
     z-index: -1;
   }
   
-  .card-card .detail {
-    display: flex;
-  }
-  .card-card .video {
-    width: 20%;
-  }
-  .card-card .description {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px;
-  }
   .banner-text {
-    border-radius: 1rem;
     background-color: #D2DE32;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
 }
+
   

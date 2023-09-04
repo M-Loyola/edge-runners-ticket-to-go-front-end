@@ -1,6 +1,5 @@
 import React from "react";
-// import { StackedCarouselSlideProps } from "react-stacked-center-carousel";
-import "../css/Slide.css";
+import "../assets/styles/Slide.css";
 
 export const Slide = React.memo(function (StackedCarouselSlideProps) {
   const {
@@ -25,14 +24,10 @@ export const Slide = React.memo(function (StackedCarouselSlideProps) {
           }}
         />
       </div>
-      <div className="detail fill">
-        <div className="description">
           <img
             className="cover-image"
             src={coverImage}
           />
         </div>
-      </div>
-    </div>
   );
 });

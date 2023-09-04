@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { StackedCarousel, ResponsiveContainer} from "react-stacked-center-carousel";
-import "../css/Slide.css";
+import "../assets/styles/Slide.css";
 import { Slide } from "./Slide";
 
 
@@ -37,7 +37,7 @@ export const NextWeekRelease = () => {
   return (
     <>
     <div className="carousel-banner">
-        <span className="banner-text">Unlocking Next Week's Release!</span>
+        <h1 className="banner-text">Unlocking Next Week's Release!</h1>
       </div>
     <div className="card">
       <div style={{ width: "100%", position: "relative" }}>
@@ -53,7 +53,6 @@ export const NextWeekRelease = () => {
                 data={data}
                 maxVisibleSlide={3}
                 disableSwipe
-                // customScales={[1, 0.85, 0.7, 0.55]}
                 transitionTime={450}
               />
             );
