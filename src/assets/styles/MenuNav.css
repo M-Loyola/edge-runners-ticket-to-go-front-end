@@ -1,0 +1,48 @@
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column-reverse;
+    }
+
+    .search-container {
+        order: 1;
+    }
+
+    .menu-container {
+        order: 1;
+    }
+
+    .ticket-container {
+        order: 2;
+    }
+}
+
+.custom-search-button {
+    background-color: #D2DE32;
+    border: 1px solid black;
+    height: 40px;
+    width: 60px;
+    border-radius: 5px;
+    color: black;
+}
+
+.custom-search-button:hover {
+    background-color: #535818; 
+    border: 1px solid black;
+    color: black; 
+    transition: border-color 0.3s ease;
+}
+
+.ant-menu-item-selected {
+    color: rgb(113, 111, 111) !important;
+}
+
+.ant-menu {
+    background: transparent !important;
+}
