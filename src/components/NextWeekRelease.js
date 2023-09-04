@@ -41,7 +41,7 @@ export const NextWeekRelease = () => {
     <div className="carousel-banner">
         <h1 className="banner-text">Unlocking Next Week's Release!</h1>
       </div>
-    <div className="card">
+    <div className="card" style={{ height: "600px"}}>
       <div style={{ width: "100%", position: "relative" }}>
         <ResponsiveContainer
           carouselRef={ref}
