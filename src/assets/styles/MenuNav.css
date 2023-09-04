@@ -42,3 +42,7 @@
 .ant-menu-item-selected {
     color: rgb(113, 111, 111) !important;
 }
+
+.ant-menu {
+    background: transparent !important;
+}
