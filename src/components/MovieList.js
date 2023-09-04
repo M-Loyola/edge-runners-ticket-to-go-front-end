@@ -1,6 +1,5 @@
-import React from "react";
+import { Col, Row } from "antd";
 import { NavLink } from "react-router-dom";
-import { Row, Col } from "antd";
 import "../assets/styles/MovieList.css";
 import movieData from "./movieData";
 

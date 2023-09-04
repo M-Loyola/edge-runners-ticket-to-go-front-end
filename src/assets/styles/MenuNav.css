@@ -46,3 +46,11 @@
 .ant-menu {
     background: transparent !important;
 }
+
+.ticket {
+    color: #D2DE32; 
+    -webkit-text-stroke: .5px black; 
+    font-weight: 700; 
+    font-size: 34px;
+    font-family: 'Orelega One';
+}
