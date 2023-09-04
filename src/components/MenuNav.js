@@ -2,24 +2,26 @@ import { EyeOutlined, HomeOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ReactComponent as CinemaIcon } from "../assets/icons/cinema.svg";
 
 const menuItems = [
-    { 
-        key: "home", 
-        label: "Home", 
+    {
+        key: "home",
+        label: "Home",
         icon: <HomeOutlined />,
-        link: "/" 
+        link: "/"
     },
-    { 
-        key: "cinemas", 
-        label: "Cinemas", 
-        link: "/cinemas" 
+    {
+        key: "cinemas",
+        label: "Cinemas",
+        icon: <CinemaIcon />,
+        link: "/cinemas"
     },
-    { 
-        key: "help", 
-        label: "Add Movie List", 
+    {
+        key: "help",
+        label: "Add Movie List",
         icon: <EyeOutlined />,
-        link: "/help" 
+        link: "/help"
     },
 ];
 const MenuNav = () => {
