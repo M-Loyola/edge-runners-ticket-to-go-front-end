@@ -22,3 +22,23 @@
         order: 1;
     }
 }
+
+.custom-search-button {
+    background-color: #D2DE32;
+    border: 1px solid black;
+    height: 40px;
+    width: 60px;
+    border-radius: 5px;
+    color: black;
+}
+
+.custom-search-button:hover {
+    background-color: #535818; 
+    border: 1px solid black;
+    color: black; 
+    transition: border-color 0.3s ease;
+}
+
+.ant-menu-item-selected {
+    color: rgb(113, 111, 111) !important;
+}

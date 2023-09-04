@@ -44,7 +44,9 @@ const MenuNav = () => {
                 <Search
                     placeholder="input search text"
                     allowClear
-                    enterButton="Search"
+                    enterButton={
+                        <button className="custom-search-button">Search</button>
+                    }
                     size="large"
                     onSearch={onSearch}
                 />
