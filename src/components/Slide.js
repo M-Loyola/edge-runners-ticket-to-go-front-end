@@ -27,7 +27,7 @@ export const Slide = React.memo(function (StackedCarouselSlideProps) {
           <img
             className="cover-image"
             src={coverImage}
-            alt="image"
+            alt={coverImage}
           />
         </div>
   );
