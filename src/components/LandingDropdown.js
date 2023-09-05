@@ -10,6 +10,7 @@ const customStyle = {
         color: "#333",
         fontWeight: "bold",
         padding: 0,
+        width:150,
         cursor: "pointer",
         borderRadius: 7,
 

@@ -26,14 +26,12 @@ export const MovieList = () => {
   const moviesByLocation = useSelector((state) => state.ticket.cinemaMovieList);
   return (
     <div>
-      <div className="currentMovie-container">
-        <h1 className="movieList-title">
-          Currently Screening: Must-See Movies!
-        </h1>
-        <LandingDropdown
-          onLocationChange={(location) => handleLocationChange(location)}
-        />
-      </div>
+      <h1 className="movieList-title">
+        Currently Screening: Must-See Movies!
+      </h1>
+      <LandingDropdown
+        onLocationChange={(location) => handleLocationChange(location)}
+      />
       <Row gutter={16} className="movieList-rowOne">
         {moviesByLocation
           .filter((cinema) => cinema.location === locationValue)
