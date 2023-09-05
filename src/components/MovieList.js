@@ -1,7 +1,7 @@
 import { Col, Row } from "antd";
 import { NavLink } from "react-router-dom";
-import "../assets/styles/MovieList.css";
 import movieData from "../assets/data/movieData";
+import "../assets/styles/MovieList.css";
 
 export const MovieList = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StackedCarousel, ResponsiveContainer} from "react-stacked-center-carousel";
+import { ResponsiveContainer, StackedCarousel } from "react-stacked-center-carousel";
 import "../assets/styles/Slide.css";
 import { Slide } from "./Slide";
 
