@@ -7,14 +7,14 @@ img {
 .movieList-title {
     background-color: #D2DE32;
     border: 1px solid black;
-    border-radius: 5px;
-    width: 100%;
     text-align: center;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .movieList-container {
-    padding: 20px;
+    margin: 0;
+    
 }
 
 .ant-col {

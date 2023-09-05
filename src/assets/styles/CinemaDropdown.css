@@ -1,21 +1,4 @@
-.select-container {
-    /* background-color: #D2DE32;
-    border: 1px solid black;
-    color: #333;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 7px;
-    height: auto; */
-    display: flex;
-    justify-content: space-around;
-}
-.select-container .css-tj5bde-Svg {
-    /* display: inline-block;
-    fill: black;
-    line-height: 1;
-    stroke: black;
-    stroke-width: 0; */
-}
+
 
 @media (min-width: 390px) {
     .select-container {
