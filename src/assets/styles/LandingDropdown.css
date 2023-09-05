@@ -1,34 +1,28 @@
-.select-container {
+.css-1yg1k-control{
     color: #333;
     font-weight: bold;
     cursor: pointer;
     border-radius: 7px;
-    height: auto;
-}
-
-.select-container .css-tj5bde-Svg {
-    display: inline-block;
-    fill: black;
-    line-height: 1;
-    stroke: black;
-    stroke-width: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content:flex-start;
 }
 
 @media (min-width: 390px) {
-    .select-container {
-        width: 120px;
-    }
+    .css-b62m3t-container {
+        width: 40%;
+    } 
 }
 
 @media (min-width: 500px) and (max-width: 1000px) {
-    .select-container {
-        width: 150px;
+    .css-b62m3t-container {
+        width: 30%;
     }
 }
 
 @media (min-width: 1001px) {
-    .select-container {
-        width: 200px;
+    .css-b62m3t-container {
+        width: 30%;
     }
-   
+
 }
