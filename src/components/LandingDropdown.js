@@ -6,7 +6,7 @@ const customStyle = {
     control: (provided, state) => ({
         ...provided,
         backgroundColor: "#D2DE32",
-        border: "1px solid #D2DE32",
+        border: "1px solid black",
         color: "#333",
         fontWeight: "bold",
         padding: 0,
@@ -18,13 +18,17 @@ const customStyle = {
         ...provided,
         padding: 12,
         backgroundColor: state.isSelected ? "#D9D9D9" : "#fff",
+        transition: "background-color 0.3s",
+        "&:hover": {
+            backgroundColor: "#D9D9D9",
+        },
     }),
 };
 
 const LandingDropdown = (props) => {
     return (
         <div>
-            <Select className="select-container"
+            <Select
                 options={location}
                 defaultValue={location[0]}
                 styles={customStyle}
