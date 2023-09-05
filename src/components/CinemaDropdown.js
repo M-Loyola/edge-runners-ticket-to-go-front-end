@@ -1,7 +1,6 @@
-import React from "react";
 import Select from "react-select";
-import "../assets/styles/CinemaDropdown.css";
 import location from "../assets/data/locationData";
+import "../assets/styles/CinemaDropdown.css";
 
 const customStyle = {
   control: (provided, state) => ({

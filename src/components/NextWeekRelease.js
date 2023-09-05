@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   ResponsiveContainer,
   StackedCarousel,
 } from "react-stacked-center-carousel";
-import "../assets/styles/Slide.css";
-import { Slide } from "./Slide";
-import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../api/apiConfig";
+import "../assets/styles/Slide.css";
 import { resetMovieList } from "../reducers/ticketReducer";
+import { Slide } from "./Slide";
 
 export const NextWeekRelease = () => {
   const ref = React.useRef(StackedCarousel);
