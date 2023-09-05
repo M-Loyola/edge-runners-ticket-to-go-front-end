@@ -1,4 +1,4 @@
-import { EyeOutlined, HomeOutlined } from "@ant-design/icons";
+import { EyeOutlined, HomeFilled } from "@ant-design/icons";
 import { Menu } from "antd";
 import Search from "antd/es/input/Search";
 import { NavLink, useLocation } from 'react-router-dom';
@@ -10,7 +10,7 @@ const menuItems = [
     {
         key: "home",
         label: "Home",
-        icon: <HomeOutlined />,
+        icon: <HomeFilled />,
         link: "/"
     },
     {
@@ -33,7 +33,7 @@ const MenuNav = () => {
     return (
         <div className="header-container">
             <div className="menu-container">
-                <Menu selectedKeys={[currentPath]} mode="horizontal" className="nav-bar">
+                <Menu defaultSelectedKeys={[currentPath]} defaultOpenKeys={[currentPath]} mode="horizontal" className="nav-bar">
                     {menuItems.map((item) => (
                         <Menu.Item key={item.key} icon={item.icon}>
                             <NavLink to={item.link}>{item.label}</NavLink>
