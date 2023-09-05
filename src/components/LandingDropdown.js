@@ -25,13 +25,15 @@ const customStyle = {
 
 
 
-const LandingDropdown = () => {
+const LandingDropdown = (props) => {
+
     return (
         <div>
             <Select className="select-container"
                 options={location}
                 defaultValue={location[0]}
-                styles={customStyle} />
+                styles={customStyle}
+                onChange={(location) => props.onLocationChange(location)}/>
         </div>
     );
 };

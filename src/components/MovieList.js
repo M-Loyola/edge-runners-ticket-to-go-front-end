@@ -9,7 +9,7 @@ export const MovieList = () => {
   const [locationValue, setLocationValue] = useState("Manila");
 
   const handleLocationChange = (location) => {
-    setLocationValue(location);
+    setLocationValue(location.value);
   }
 
   return (
