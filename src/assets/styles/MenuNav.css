@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 3px solid #404040;
 }
 
 .menu-container {
@@ -68,7 +69,6 @@
     color: #D2DE32;
     -webkit-text-stroke: .5px black;
     font-weight: 700;
-    font-size: 34px;
-    font-family: 'Orelega One';
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    font-family: "Orelega One";
 }
