@@ -1,8 +1,7 @@
 import { EyeOutlined, HomeOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import Search from "antd/es/input/Search";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from 'react-router-dom';
 import { ReactComponent as AccountIcon } from "../assets/icons/account.svg";
 import { ReactComponent as CinemaIcon } from "../assets/icons/cinema.svg";
 import "../assets/styles/MenuNav.css";
@@ -28,12 +27,13 @@ const menuItems = [
     },
 ];
 const MenuNav = () => {
-    const [current] = useState('home');
+    const location = useLocation();
+    const currentPath = location.pathname;
     const onSearch = (value) => console.log(value);
     return (
         <div className="header-container">
             <div className="menu-container">
-                <Menu selectedKeys={[current]} mode="horizontal" className="nav-bar">
+                <Menu selectedKeys={[currentPath]} mode="horizontal" className="nav-bar">
                     {menuItems.map((item) => (
                         <Menu.Item key={item.key} icon={item.icon}>
                             <NavLink to={item.link}>{item.label}</NavLink>
