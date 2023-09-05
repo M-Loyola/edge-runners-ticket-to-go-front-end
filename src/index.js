@@ -7,6 +7,7 @@ import { store } from './app/store';
 import { ErrorPage } from './pages/ErrorPage';
 import { Home } from './pages/Home';
 import reportWebVitals from './reportWebVitals';
+import { Cinemas } from './pages/Cinemas';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
       {
         index: true, 
         element: <Home />
+      },
+      {
+        path: "/cinemas",
+        index: true,
+        element: < Cinemas/>
       }
     ]
   }
