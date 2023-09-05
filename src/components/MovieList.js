@@ -1,4 +1,3 @@
-import React from "react";
 import { Col, Row } from "antd";
 import { NavLink } from "react-router-dom";
 import movieData from "../assets/data/movieData";
