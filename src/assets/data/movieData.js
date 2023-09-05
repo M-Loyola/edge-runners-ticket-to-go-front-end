@@ -61,7 +61,6 @@ const lagunaMovies = [
   }
 ]
 
-
   const data = [
     {
       id: 1,
@@ -84,3 +83,5 @@ const lagunaMovies = [
   ]
 
   export default data;
+
+ 

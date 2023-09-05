@@ -1,36 +1,37 @@
 .select-container {
-    background-color: black;
+    /* background-color: #D2DE32;
     border: 1px solid black;
     color: #333;
     font-weight: bold;
     cursor: pointer;
     border-radius: 7px;
-    height: auto;
+    height: auto; */
+    display: flex;
+    justify-content: space-around;
 }
-
 .select-container .css-tj5bde-Svg {
-    display: inline-block;
+    /* display: inline-block;
     fill: black;
     line-height: 1;
     stroke: black;
-    stroke-width: 0;
+    stroke-width: 0; */
 }
 
 @media (min-width: 390px) {
     .select-container {
-        width: 120px;
+        width: 90%;
     }
 }
 
 @media (min-width: 500px) and (max-width: 1000px) {
     .select-container {
-        width: 150px;
+        width: 90%;
     }
 }
 
 @media (min-width: 1001px) {
     .select-container {
-        width: 200px;
+        width: 90%;
     }
    
 }

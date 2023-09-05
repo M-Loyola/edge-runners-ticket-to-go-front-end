@@ -1,5 +1,9 @@
 import "../assets/styles/LandingDropdown.css";
 import Select from "react-select";
+import location from "../assets/data/locationData";
+
+
+
 const customStyle = {
     control: (provided, state) => ({
         ...provided,
@@ -19,23 +23,9 @@ const customStyle = {
     }),
 };
 
-const location = [
-    {
-        value: "Manila",
-        label: "Manila"
-    },
-    {
-        value: "Ortigas",
-        label: "Ortigas"
-    },
-    {
-        value: "Laguna",
-        label: "Laguna"
-    }
-];
+
 
 const LandingDropdown = () => {
-
     return (
         <div>
             <Select className="select-container"
