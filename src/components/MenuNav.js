@@ -3,6 +3,7 @@ import { Menu } from "antd";
 import Search from "antd/es/input/Search";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ReactComponent as AccountIcon } from "../assets/icons/account.svg";
 import { ReactComponent as CinemaIcon } from "../assets/icons/cinema.svg";
 import "../assets/styles/MenuNav.css";
 
@@ -46,6 +47,7 @@ const MenuNav = () => {
             <div className="search-container">
                 <Search
                     placeholder="input search text"
+                    className="search-input"
                     allowClear
                     enterButton={
                         <button className="custom-search-button">Search</button>
@@ -53,6 +55,7 @@ const MenuNav = () => {
                     size="large"
                     onSearch={onSearch}
                 />
+                <AccountIcon className="account-icon" />
             </div>
         </div>
     );

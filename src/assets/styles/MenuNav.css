@@ -5,6 +5,15 @@
     align-items: center;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.account-icon {
+    padding-left: 5px;
+}
+
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column-reverse;
@@ -21,6 +30,10 @@
     .ticket-container {
         order: 2;
     }
+
+    .search-input {
+        width: 320px;
+    }
 }
 
 .custom-search-button {
@@ -33,9 +46,9 @@
 }
 
 .custom-search-button:hover {
-    background-color: #535818; 
+    background-color: #535818;
     border: 1px solid black;
-    color: black; 
+    color: black;
     transition: border-color 0.3s ease;
 }
 
@@ -48,9 +61,10 @@
 }
 
 .ticket {
-    color: #D2DE32; 
-    -webkit-text-stroke: .5px black; 
-    font-weight: 700; 
+    color: #D2DE32;
+    -webkit-text-stroke: .5px black;
+    font-weight: 700;
     font-size: 34px;
     font-family: 'Orelega One';
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
