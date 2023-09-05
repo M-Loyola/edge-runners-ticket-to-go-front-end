@@ -9,7 +9,7 @@ const LandingDropdown = () => {
 
     return (
         <div>
-            <select value={selectedValue} onChange={handleSelectChange} className="select-container" >
+            <select value={selectedValue} onChange={handleSelectChange} className="select-container" > 
                 <option value="Manila">Manila</option>
                 <option value="Ortigas">Ortigas</option>
                 <option value="Laguna">Laguna</option>
