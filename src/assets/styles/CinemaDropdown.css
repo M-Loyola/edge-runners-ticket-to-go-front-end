@@ -1,20 +1,49 @@
 
+.select-container{
+    margin-top: 5px;
+    background-color: black;
+    color: black;
+}
+
+.select-container .css-1dimb5e-singleValue{
+    color: yellow !important;
+}
+
+.select-container .css-12y454-control{
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+.select-container option{
+    color: black;
+}
+.select-container .css-1xc3v61-indicatorContainer{
+    padding: 5px;
+    color: yellow;
+    
+}
+.select-container .css-dg45r9-control{
+    border: none;
+}
+
+
+
 
 @media (min-width: 390px) {
-    .select-container {
-        width: 90%;
+    .select-container .css-dg45r9-control{
+        width: auto ;
     }
 }
 
 @media (min-width: 500px) and (max-width: 1000px) {
-    .select-container {
-        width: 90%;
+    .css-b62m3t-container {
+        width: 30%;
     }
 }
 
 @media (min-width: 1001px) {
-    .select-container {
-        width: 90%;
+    .css-b62m3t-container {
+        width: 30%;
     }
-   
+
 }

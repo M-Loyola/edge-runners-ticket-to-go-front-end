@@ -17,6 +17,8 @@ const customStyle = {
     option: (provided, state) => ({
         ...provided,
         padding: 12,
+        cursor: "pointer",
+
         backgroundColor: state.isSelected ? "#D9D9D9" : "#fff",
         transition: "background-color 0.3s",
         "&:hover": {
