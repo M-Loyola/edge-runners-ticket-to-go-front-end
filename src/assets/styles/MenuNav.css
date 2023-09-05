@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.menu-container {
+    width: 400px;
+}
+
 .search-container {
     display: flex;
     align-items: center;
