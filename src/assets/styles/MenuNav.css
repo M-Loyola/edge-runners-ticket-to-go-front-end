@@ -8,6 +8,10 @@
     position: sticky;
 }
 
+.nav-bar {
+    font-weight: 500;
+}
+
 .ant-input {
     background-color: #D9D9D9 !important;
 }
@@ -67,8 +71,12 @@
     transition: border-color 0.3s ease;
 }
 
+.ant-menu-item {
+    color: #8C8C8C !important;
+}
+
 .ant-menu-item-selected {
-    color: rgb(113, 111, 111) !important;
+    color: #404040 !important;
 }
 
 .ant-menu {

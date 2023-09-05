@@ -1,112 +1,167 @@
 .react-stacked-center-carousel {
-    padding: 20px 0;
-    height: 700px;
-    margin-bottom: 20rem;
-  }
-  
-  .card-card {
-    transition: all 200ms ease;
-    cursor: pointer;
-    width: auto;
-    border-radius: 15px;
-    height:550px;
-    position: relative;
-    justify-content: center; 
-    align-items: center; 
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.05);
-    background-color: transparent;
-  }
-  
-  .card-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .react-stacked-center-carousel-slide-0 .card-card {
-    cursor: default;
-  }
-  
-  .react-stacked-center-carousel-slide-0 .card-card:hover {
-    transform: none;
-  }
-  
-  .fill {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .card-card .card-overlay {
-    user-select: none;
-    position: absolute;
-    background-color: #00000099;
-    transition: all 300ms ease;
-    border-radius: 20px;
-  }
-  
-  .card-card:hover .card-overlay {
-    background-color: #0000002d;
-  }
-  
-  .react-stacked-center-carousel-slide-0 .card-overlay {
-    background-color: #00000099 !important;
-  }
-  
-  .card-card .cover-image {
-    max-width: 100%;
-    height: 550px;
-    border-radius: 20px;
-  }
-  
-  .card-card .cover {
-    position: absolute;
-    transition: opacity 200ms ease;
+  padding: 20px 0;
+  height: 700px;
+  margin-bottom: 20rem;
+}
 
-  }
-  .react-stacked-center-carousel-slide-0 .card-card .cover {
-    transition: opacity 200ms ease, z-index 0ms 200ms;
-  }
-  
-  .card-card .cover.on {
-    opacity: 1;
-    z-index: 1;
-  }
-  
-  .card-card .cover.off {
-    opacity: 0;
-    z-index: -1;
-  }
-  
-  .banner-text {
-    background-color: #D2DE32;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 50%;
-    text-align: center;
-    padding: 10px;
+.card {
+  height: 565px;
+}
+.card-card {
+  transition: all 200ms ease;
+  cursor: pointer;
+  width: auto;
+  border-radius: 15px;
+  height:550px;
+  position: relative;
+  justify-content: center; 
+  align-items: center; 
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.05);
+  background-color: transparent;
+}
+
+.card-card:hover {
+  transform: scale(1.05);
+}
+
+.react-stacked-center-carousel-slide-0 .card-card {
+  cursor: default;
+}
+
+.react-stacked-center-carousel-slide-0 .card-card:hover {
+  transform: none;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+}
+
+.card-card .card-overlay {
+  user-select: none;
+  position: absolute;
+  background-color: #00000099;
+  transition: all 300ms ease;
+  border-radius: 20px;
+}
+
+.card-card:hover .card-overlay {
+  background-color: #0000002d;
+}
+
+.react-stacked-center-carousel-slide-0 .card-overlay {
+  background-color: #00000099 !important;
+}
+
+.card-card .cover-image {
+  max-width: 100%;
+  height: 550px;
+  border-radius: 20px;
+}
+
+.card-card .cover {
+  position: absolute;
+  transition: opacity 200ms ease;
+
+}
+.react-stacked-center-carousel-slide-0 .card-card .cover {
+  transition: opacity 200ms ease, z-index 0ms 200ms;
+}
+
+.card-card .cover.on {
+  opacity: 1;
+  z-index: 1;
+}
+
+.card-card .cover.off {
+  opacity: 0;
+  z-index: -1;
+}
+
+.banner-text {
+  background-color: #D2DE32;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
 }
 
 @media (min-width: 390px) {
-  .banner-text {
-    font-size: 0.85em;
+.react-stacked-center-carousel {
+  padding: 5px 0;
+  height: 250px;
+}
+.card-card .cover-image {
+  max-width: 100%;
+  height: 250px;
+}
+.card-card {
+  height:250px;
+}
+.fill {
+  width: 100%;
+  height: 100%;
+}
+.card{
+  height: 270px;
+}
+.banner-text {
+  font-size: 0.85em;
 }
 p {
-    font-size: 0.85em;
+  font-size: 0.85em;
 }
 }  
 
-@media (min-width: 1001px) {
-  .banner-text {
-    font-size: 1.5em;
+@media (min-width: 901px) {
+.react-stacked-center-carousel {
+  height: 450px; 
+}
+.card-card .cover-image {
+  max-width: 100%;
+  height: 450px;
+}
+.card-card {
+  height:450px;
+}
+.fill {
+  width: 100%;
+  height: 100%;
+}
+.card{
+  height: 460px;
+}
+.banner-text {
+  font-size: 1.5em;
 }
 p {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 }
 
-@media (min-width: 500px) and (max-width: 1000px) {
-  .banner-text  {
-    font-size: 1.5em;
+@media (min-width: 500px) and (max-width: 900px) {
+.react-stacked-center-carousel {
+  height: 400px; 
+}
+.card-card .cover-image {
+  max-width: 100%;
+  height: 400px;
+}
+.card-card {
+  height:400px;
+}
+.fill {
+  width: 100%;
+  height: 100%;
+}
+.card{
+  height: 410px;
+}
+.banner-text  {
+  font-size: 1.5em;
 }
 p {
-    font-size: 1.55em;
+  font-size: 1.55em;
 }
 }
