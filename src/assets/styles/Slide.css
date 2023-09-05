@@ -82,7 +82,31 @@
     width: 50%;
     text-align: center;
     padding: 10px;
-    font-size: 30px;
 }
 
-  
+@media (min-width: 390px) {
+  .banner-text {
+    font-size: 0.85em;
+}
+p {
+    font-size: 0.85em;
+}
+}  
+
+@media (min-width: 1001px) {
+  .banner-text {
+    font-size: 1.5em;
+}
+p {
+    font-size: 1.5em;
+}
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+  .banner-text  {
+    font-size: 1.5em;
+}
+p {
+    font-size: 1.55em;
+}
+}
