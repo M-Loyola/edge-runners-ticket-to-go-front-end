@@ -12,8 +12,6 @@ export const Slide = React.memo(function (StackedCarouselSlideProps) {
 
   const coverImage = data[dataIndex].image;
 
-
-  console.log(coverImage);
   return (
     <div className="card-card" draggable={false}>
       <div className={`cover fill ${isCenterSlide ? "off" : "on"}`}>
