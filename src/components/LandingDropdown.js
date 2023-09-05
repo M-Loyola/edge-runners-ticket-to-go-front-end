@@ -2,8 +2,6 @@ import "../assets/styles/LandingDropdown.css";
 import Select from "react-select";
 import location from "../assets/data/locationData";
 
-
-
 const customStyle = {
     control: (provided, state) => ({
         ...provided,
@@ -14,7 +12,7 @@ const customStyle = {
         padding: 0,
         cursor: "pointer",
         borderRadius: 7,
-        
+
     }),
     option: (provided, state) => ({
         ...provided,
@@ -23,17 +21,14 @@ const customStyle = {
     }),
 };
 
-
-
 const LandingDropdown = (props) => {
-
     return (
         <div>
             <Select className="select-container"
                 options={location}
                 defaultValue={location[0]}
                 styles={customStyle}
-                onChange={(location) => props.onLocationChange(location)}/>
+                onChange={(location) => props.onLocationChange(location)} />
         </div>
     );
 };
