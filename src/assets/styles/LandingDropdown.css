@@ -1,0 +1,20 @@
+.select-container {
+    color: #333;
+    cursor: pointer;
+    background-color: #D2DE32;
+    border: 1px solid black;
+    margin: 2%;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 7px;
+}
+.select-container option {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+}
+.select-container :hover {
+    background-color: #f5f5f5;
+}

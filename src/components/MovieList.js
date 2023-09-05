@@ -1,12 +1,17 @@
+import React from "react";
 import { Col, Row } from "antd";
 import { NavLink } from "react-router-dom";
 import movieData from "../assets/data/movieData";
 import "../assets/styles/MovieList.css";
+import LandingDropdown from "./LandingDropdown";
 
 export const MovieList = () => {
   return (
     <div>
-      <h1 className="movieList-title">Currently Screening: Must-See Movies!</h1>
+      <div className="currentMovie-container">
+        <h1 className="movieList-title">Currently Screening: Must-See Movies!</h1>
+        <LandingDropdown />
+      </div>
       <Row gutter={16} className="movieList-rowOne">
         {movieData.map((movie) => (
           <Col key={movie.id} xs={4} lg={4}>

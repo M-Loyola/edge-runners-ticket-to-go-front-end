@@ -34,8 +34,13 @@ p {
     color: black;
     font-weight: bold;
 }
-
   
+.currentMovie-container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-around;
+    
+  }
 @media (min-width: 390px) {
     .movieList-rowOne .ant-col {
         flex: 0 0 50%; 
