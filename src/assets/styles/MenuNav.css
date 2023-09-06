@@ -10,6 +10,7 @@
 
 .nav-bar {
     font-weight: 500;
+    position: static;
 }
 
 .ant-input {

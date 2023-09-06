@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as apiConfig from "../api/apiConfig";
 import { MovieList } from "../components/MovieList";
 import { NextWeekRelease } from "../components/NextWeekRelease";
+import CinemaSeatingModal from "../components/CinemaSeatingModal";
 
 export const Home = () => {
   const [showNextWeekRelease, setShowNextWeekRelease] = useState(false);
@@ -19,10 +20,23 @@ export const Home = () => {
     fetchData();
   }, []);
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <>
-      {showNextWeekRelease && <NextWeekRelease />}
+      {/* {showNextWeekRelease && <NextWeekRelease />} */}
+      <button onClick={handleOpenModal}>Open Cinema Seating</button>
+
       <MovieList />
+      <CinemaSeatingModal visible={isModalVisible} onCancel={handleCloseModal} />
     </>
   );
 };
