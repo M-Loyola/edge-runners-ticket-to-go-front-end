@@ -8,11 +8,6 @@ import { getMovies } from "../api/apiConfig";
 import "../assets/styles/Slide.css";
 import { resetMovieList } from "../reducers/ticketReducer";
 import { Slide } from "./Slide";
-function useEffectOnce(callback) {
-  useEffect(() => {
-    callback();
-  });
-}
 
 export const NextWeekRelease = () => {
   const ref = React.useRef(StackedCarousel);
@@ -27,18 +22,15 @@ export const NextWeekRelease = () => {
   const upComingList = useSelector((state) =>
     state.ticket.movieList.filter((movie) => !movie.isShowing)
   );
-
-  useEffectOnce(() => {
-    getAllMovies();
-  });
-
+  
   useEffect(() => {
-    setInterval(stuff, 5000);
+    getAllMovies();
+    // setInterval(stuff, 5000);
   });
 
-  function stuff() {
-    ref.current?.goNext();
-  }
+  // function stuff() {
+  //   ref.current?.goNext();
+  // }
 
   return (
     <>
