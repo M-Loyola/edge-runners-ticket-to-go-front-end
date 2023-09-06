@@ -11,7 +11,7 @@ export const ReserveConfirmPageTwo = () => {
             <Row gutter={[0, 16]}>
                 <Col span={24}>
                     <Text className="text-container">
-                        Your Ticket is Now is reserved!<br />
+                        Your Ticket is Now Reserved!<br />
                         Thank you for trusting us.
                     </Text>
                     <div className="button-container">
