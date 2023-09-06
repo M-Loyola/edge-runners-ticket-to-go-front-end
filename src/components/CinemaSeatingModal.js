@@ -30,6 +30,7 @@ const CinemaSeatingModal = ({ visible, onCancel, onSelectedSeatsChange }) => {
             open={visible} //change to current(?)
             onCancel={onCancel}
             footer={null}
+            className='cinema-seating-modal'
         >
             <div className="cinema-seating-container">
                 {rows.map((row) => (
@@ -50,9 +51,7 @@ const CinemaSeatingModal = ({ visible, onCancel, onSelectedSeatsChange }) => {
                     </div>
                 ))}
             </div>
-            {selectedSeats.length > 0 && (
-                <p>You have selected: {selectedSeats.join(', ')}</p>
-            )}
+            <p>Selected Seats: {selectedSeats.length > 0 ? selectedSeats.join(', ') : "None"}</p>
         </Modal>
     );
 };
