@@ -9,6 +9,8 @@ import { Home } from './pages/Home';
 import reportWebVitals from './reportWebVitals';
 import { Cinemas } from './pages/Cinemas';
 import ReservationPage from './pages/ReservationPage';
+import { ReserveConfirmPageOne } from './components/ReserveConfirmPageOne';
+import { ReserveConfirmPageTwo } from './components/ReserveConfirmPageTwo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -30,6 +32,16 @@ const router = createBrowserRouter([
         path: "/reservation",
         index: true,
         element: < ReservationPage/>
+      },
+      {
+        path: "/confirmationpage1",
+        index: true,
+        element: < ReserveConfirmPageOne/>
+      },
+      {
+        path: "/confirmationpage2",
+        index: true,
+        element: < ReserveConfirmPageTwo/>
       }
     ]
   }
