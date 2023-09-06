@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from 'antd';
 import '../assets/styles/CinemaSeatingModal.css';
+import { useSelector } from 'react-redux';
 
 const rows = ['A', 'B', 'C', 'D', 'E'];
 const seatsPerRow = 10;
 
 const CinemaSeatingModal = ({ visible, onCancel, onSelectedSeatsChange }) => {
+    const occupiedSeats = useSelector(state => state.ticket.selectedMovie.occupiedSeats);
+    console.log(occupiedSeats);
+    // const [occupiedSeatsArray, setOccupiedSeatsArray] = useState([]);
+    const occupiedSeatsArray = occupiedSeats?.split(',');
     const [selectedSeats, setSelectedSeats] = useState([]);
     const handleSeatClick = (row, seatNumber) => {
         const seat = `${row}${seatNumber}`;
@@ -19,9 +24,14 @@ const CinemaSeatingModal = ({ visible, onCancel, onSelectedSeatsChange }) => {
     const isSeatSelected = (row, seatNumber) => {
         return selectedSeats.includes(`${row}${seatNumber}`);
     };
+    const isSeatOccupied = (row, seatNumber) => {
+        return occupiedSeatsArray?.includes(`${row}${seatNumber}`);
+    }
 
     useEffect(() => {
+        setSelectedSeats(selectedSeats);
         onSelectedSeatsChange(selectedSeats);
+
     }, [selectedSeats, onSelectedSeatsChange]);
 
     return (
@@ -40,7 +50,7 @@ const CinemaSeatingModal = ({ visible, onCancel, onSelectedSeatsChange }) => {
                             .map((_, seatNumber) => (
                                 <div
                                     key={seatNumber}
-                                    className={`seat ${isSeatSelected(row, seatNumber + 1) ? 'selected' : ''
+                                    className={`seat ${isSeatOccupied(row, seatNumber + 1) ? 'occupied' : ''}${isSeatSelected(row, seatNumber + 1) ? 'selected' : ''
                                         }`}
                                     onClick={() => handleSeatClick(row, seatNumber + 1)}
                                 >

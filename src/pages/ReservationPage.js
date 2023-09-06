@@ -4,31 +4,37 @@ import CinemaSeatingModal from '../components/CinemaSeatingModal';
 import { useNavigate } from 'react-router-dom';
 import image2 from '../assets/icons/2.png';
 import '../assets/styles/ReservationPage.css';
+import { useSelector } from 'react-redux';
 
-const reservationDetails = [
-  {
-    key: '1',
-        title: 'Bumblebee',
-        description: "Lorem ipsum just john wick things",
-        location: 'Manila/Cinema One',
-        duration: 140,
-        schedule: "2023-09-04 10:30:00",
-        reservedSeats: "A1,A2",
-        phoneNumber: "09569453524",
-        location: "Laguna",
-        price: 240,
-        cinemaName: "Sm Sta rosa Cinema 1",
-        image: image2,
-        action: (
-          <>
-            <Button type="primary">Reserve Now!</Button>
-            <Button type="primary">Pay Now!</Button>
-          </>
-        ),
-  },
-];
+// const reservationDetails = [
+//   {
+//     key: '1',
+//         title: 'Bumblebee',
+//         description: "Lorem ipsum just john wick things",
+//         location: 'Manila/Cinema One',
+//         duration: 140,
+//         schedule: "2023-09-04 10:30:00",
+//         reservedSeats: "A1,A2",
+//         phoneNumber: "09569453524",
+//         location: "Laguna",
+//         price: 240,
+//         cinemaName: "Sm Sta rosa Cinema 1",
+//         image: image2,
+//         action: (
+//           <>
+//             <Button type="primary">Reserve Now!</Button>
+//             <Button type="primary">Pay Now!</Button>
+//           </>
+//         ),
+//   },
+// ];
+
 
 const ReservationPage = () => {
+  const reservationDetails = [];
+  const valToBePushed = useSelector(state => state.ticket.selectedMovie);
+  reservationDetails.push(valToBePushed);
+  const userInfo = useSelector(state => state.ticket.user);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedSeats, setSectedSeats] = useState([]);
   const navigate = useNavigate();
@@ -99,7 +105,7 @@ const ReservationPage = () => {
           </Row>
           <Row>
             <Col>Payment Number:  </Col>
-            <Col>{details.phoneNumber}</Col>
+            <Col>{userInfo.phoneNumber}</Col>
           </Row>
           <button className="open-cinema-seating" onClick={handleOpenModal}>Open Cinema Seating</button>
           <Row>

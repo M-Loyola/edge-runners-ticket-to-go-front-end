@@ -15,5 +15,4 @@ export const api = axios.create(
     },
   }[process.env.REACT_APP_ENV || "dev"]
 );
-console.log(process.env.REACT_APP_ENV);
 export default api;

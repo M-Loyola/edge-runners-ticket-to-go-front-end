@@ -6,6 +6,15 @@ const ticketReducer = createSlice({
     movieList: [], //TODO: init placeholder
     cinemaMovieList: [],
     cinemaList: [],
+    selectedMovie: {},
+    selectedMovieImage: "",
+    user: {
+      id: 1,
+      firstName: "Group 1",
+      lastName: "Ex-edgeRunners",
+      email: "exedgerunners@ita.com",
+      phoneNumber: "09987654321"
+    }
   },
   reducers: {
     resetMovieList: (state, action) => {
@@ -16,11 +25,13 @@ const ticketReducer = createSlice({
     },
     resetCinemaMovieList: (state, action) => {
       state.cinemaMovieList = action.payload;
-      console.log(state.cinemaMovieList, "Reducer");
+    },
+    setSelectedMovie: (state, action) => {
+      state.selectedMovie = action.payload;
     },
   },
 });
 
-export const { resetMovieList, resetCinemaMovieList, resetCinemaList } =
+export const { resetMovieList, resetCinemaMovieList, resetCinemaList, setSelectedMovie } =
   ticketReducer.actions;
 export default ticketReducer.reducer;

@@ -44,6 +44,12 @@
     color: white;
     border: 1px solid #007bff;
 }
+.occupied {
+    background-color: #d83838 !important;
+    color: white;
+    border: 1px solid #ff0000;
+    pointer-events: none !important;
+}
 
 @media (max-width: 768px) {
     .cinema-seating-modal {
