@@ -18,6 +18,13 @@
     font-size: 30px;
 }
 
+.button {
+    background-color: black;
+    color: #D2DE32;
+    border-radius: 10px; 
+    cursor: pointer; 
+  }
+
 @media (min-width: 390px) {
     .text-container {
         font-size: 15px;

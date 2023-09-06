@@ -15,12 +15,12 @@ export const ReserveConfirmPageTwo = () => {
             <Row gutter={[0, 16]}>
                 <Col span={24}>
                     <Text className="text-container">
-                        Your Ticket is Now Reserved!<br />
+                        Your ticket is now reserved!<br />
                         Thank you for trusting us.
                     </Text>
                     <div className="button-container">
                         <NavLink to="/"><br/>
-                            <Button onClick={handleBack}>
+                            <Button className="button" onClick={handleBack}>
                                 Return Home
                             </Button>
                         </NavLink>
