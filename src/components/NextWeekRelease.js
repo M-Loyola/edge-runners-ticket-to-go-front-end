@@ -22,29 +22,23 @@ export const NextWeekRelease = () => {
   const upComingList = useSelector((state) =>
     state.ticket.movieList.filter((movie) => !movie.isShowing)
   );
-
   useEffect(() => {
     getAllMovies();
-    // setInterval(stuff, 5000);
-  });
+    setInterval(stuff, 5000);
+  }, []);
 
-  // function stuff() {
-  //   ref.current?.goNext();
-  // }
+  function stuff() {
+    ref.current?.goNext();
+  }
 
   return (
     <>
       <div className="carousel-banner">
         <h1 className="banner-text">NEXT WEEK'S RELEASE!</h1>
       </div>
-
-      <div className="card" style={{ height: "600px" }}>
+      <div className="card" >
         <div
-          style={{
-            width: "100%",
-            position: "relative",
-            userSelect: "none",
-          }}
+          style={{ width: "100%", position: "relative", userSelect: "none" }}
         >
           <ResponsiveContainer
             carouselRef={ref}
