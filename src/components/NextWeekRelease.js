@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ResponsiveContainer,
@@ -8,8 +8,10 @@ import { getMovies } from "../api/apiConfig";
 import "../assets/styles/Slide.css";
 import { resetMovieList } from "../reducers/ticketReducer";
 import { Slide } from "./Slide";
+import { Spin } from 'antd';
 
 export const NextWeekRelease = () => {
+  const [isSpinning, setIsSpinning] = useState(true);
   const ref = React.useRef(StackedCarousel);
 
   const dispatch = useDispatch();
@@ -25,6 +27,9 @@ export const NextWeekRelease = () => {
   useEffect(() => {
     getAllMovies();
     setInterval(stuff, 5000);
+    setTimeout(() => {
+      setIsSpinning(false);
+    }, 1000)
   }, []);
 
   function stuff() {
@@ -32,14 +37,15 @@ export const NextWeekRelease = () => {
   }
 
   return (
-    <>
+    <Spin
+      tip="Loading next week's releases."
+      spinning={isSpinning}
+      size="large">
       <div className="carousel-banner">
         <h1 className="banner-text">NEXT WEEK'S RELEASE!</h1>
       </div>
-      <div className="card" >
-        <div
-          style={{ width: "100%", position: "relative", userSelect: "none" }}
-        >
+      <div className="card">
+        <div style={{ width: "100%", position: "relative", userSelect: "none" }}>
           <ResponsiveContainer
             carouselRef={ref}
             render={(width, carouselRef) => {
@@ -59,6 +65,6 @@ export const NextWeekRelease = () => {
           />
         </div>
       </div>
-    </>
+    </Spin >
   );
 };
