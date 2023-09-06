@@ -63,9 +63,11 @@ const ReservationPage = () => {
   }; 
 
   return (
+    <div className='page-container'>
     <div className="card-container-reservation">
     <Card
-      title="Reservation"
+    className='title-reservation'
+      title="RESERVATION"
       bordered={false}
       style={{
         width: 300,
@@ -83,16 +85,18 @@ const ReservationPage = () => {
             <img src={details.image} />
             </Col>
           </Row>
+          <br/>
+          <div className="movie-details-container">
           <Row>
-            <Col>Movie Title</Col>
+            <Col>Movie Title:  </Col>
             <Col>{details.title}</Col>
           </Row>
           <Row>
-            <Col>Location</Col>
+            <Col>Location:  </Col>
             <Col>{details.location}</Col>
           </Row>
           <Row>
-            <Col>Schedule</Col>
+            <Col>Schedule:  </Col>
             <Col>{details.schedule}</Col>
           </Row>
           <Row>
@@ -103,9 +107,9 @@ const ReservationPage = () => {
             <Col>Payment Number:  </Col>
             <Col>{userInfo.phoneNumber}</Col>
           </Row>
-          <button onClick={handleOpenModal}>Open Cinema Seating</button>
+          <button className="open-cinema-seating" onClick={handleOpenModal}>Open Cinema Seating</button>
           <Row>
-            <Col>Selected Seats:</Col>
+            <Col>Selected Seats:  </Col>
             <Col>{selectedSeats.join(', ')}</Col>
           </Row> 
           <Row>
@@ -120,17 +124,22 @@ const ReservationPage = () => {
             <Col>Total Price:  </Col>
             <Col>{totalPrice}</Col>
           </Row>
-          <CinemaSeatingModal visible={isModalVisible} onCancel={handleCloseModal} onSelectedSeatsChange={handleSelectedSeatsChange} />
+          </div>
+          <CinemaSeatingModal visible={isModalVisible} onCancel={handleCloseModal} onSelectedSeatsChange={handleSelectedSeatsChange}/>
         </div>
           );
           })}
-      <button className="reserve-button" onClick={handleConfirmation}>
+      <button className="button" onClick={handleConfirmation}>
         Reserve now!
       </button>
-      <button className="back-button" onClick={handleBack}>
-        Back
+      <button className="button" >
+        Pay now!
       </button>
+        <button className="back-button" onClick={handleBack}>
+        Back
+        </button>
     </Card>
+    </div>
     </div>
   );
 };

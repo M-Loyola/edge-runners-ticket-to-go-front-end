@@ -11,44 +11,51 @@ export const ReserveConfirmPageOne = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-      const delay = setTimeout(() => {
-        if (countdown === 1) {
-            navigate('/confirmationpage2');
-        } else {
-            setCountdown((prevCountdown) => prevCountdown - 1);
-        }
-    }, 1000);
-    return () => clearTimeout(delay);
-}, [countdown, navigate]);
-
-
+        const delay = setTimeout(() => {
+            if (countdown === 1) {
+                navigate('/confirmationpage2');
+            } else {
+                setCountdown((prevCountdown) => prevCountdown - 1);
+            }
+        }, 1000);
+        return () => clearTimeout(delay);
+    }, [countdown, navigate]);
+    const reservationData = {
+        location: "SM Manila",
+        movieTitle: "Bumblebee",
+        scheduledDate: "09/03/23",
+        timeRange: "1:00 PM to 3:00 PM",
+        paymentDeadline: "09/02/23",
+        price: "$7"
+    };
     return (
         <div className="reserve-container" >
             <Row gutter={[0, 16]}>
                 <Col span={24}>
                     <Text className="text-container">
                         Hello,<br />
-                        You've reserved a seat at SM <br />
-                        Manila, Cinema One, for the
-                        movie "Bumblebee" scheduled <br />
-                        on 09/03/23 from 1:00 PM to
-                        3:00 PM.<br /><br />          </Text>
+                        You've reserved a seat at {reservationData.location} Cinema One, for the
+                        movie "{reservationData.movieTitle}" scheduled <br />
+                        on {reservationData.scheduledDate} from {reservationData.timeRange}.<br /><br />
+                    </Text>
                 </Col>
+
                 <Col span={24}>
                     <Text className="text-container">
                         The total cost for your <br />
-                        reservation is $7. To secure your <br />
+                        reservation is {reservationData.price}. To secure your <br />
                         seat, please make the payment
-                        before 09/02/23.
+                        before {reservationData.paymentDeadline}.<br /><br />
                     </Text>
                 </Col>
+                
                 <Col span={24}>
                     <Text className="text-container">
-                        <br/> Reservation is on Process...<br />
+                        <br /> Reservation is on Process...<br />
                         Redirecting to another page in {countdown} seconds...
                     </Text>
                 </Col>
             </Row>
-        </div>
+        </div >
     );
 };
