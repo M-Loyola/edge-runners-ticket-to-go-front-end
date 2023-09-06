@@ -3,7 +3,6 @@ import { Menu } from "antd";
 import Search from "antd/es/input/Search";
 import { NavLink, useLocation } from 'react-router-dom';
 import { ReactComponent as AccountIcon } from "../assets/icons/account.svg";
-import { ReactComponent as CinemaIcon } from "../assets/icons/cinema.svg";
 import "../assets/styles/MenuNav.css";
 
 const menuItems = [
@@ -14,16 +13,10 @@ const menuItems = [
         link: "/"
     },
     {
-        key: "cinemas",
-        label: "Cinemas",
-        icon: <CinemaIcon />,
-        link: "/cinemas"
-    },
-    {
-        key: "movieList",
-        label: "Add Movie List",
+        key: "view",
+        label: "View Reservation",
         icon: <EyeOutlined />,
-        link: "/movieList"
+        link: "/view-reservation"
     },
 ];
 const MenuNav = () => {
