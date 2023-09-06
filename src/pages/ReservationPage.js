@@ -25,64 +25,57 @@ const reservationDetails = [
 ];
 
 const ReservationPage = () => {
-  // reservationDetails.map((details) => console.log(details))
   const [isModalVisible, setIsModalVisible] = useState(false);
   const handleOpenModal = () => {
     setIsModalVisible(true);
   };
-  
+
   const handleCloseModal = () => {
     setIsModalVisible(false);
   };
   return (
-    <div>
-      <Card
-        title="Card title"
-        bordered={false}
-        style={{
-          width: 300,
-        }}
-      >
-        {
-          reservationDetails.map((details) => {
-            (
-              <>
-                <Row>
-                  <Col>Movie Title</Col>
-                  <Col>{details.title}</Col>
-                </Row>
-                <Row>
-                  <Col>Location</Col>
-                  <Col>{details.location}</Col>
-                </Row>
-                <Row>
-                  <Col>Location</Col>
-                  <Col>{details.location}</Col>
-                </Row>
-                <Row>
-                  <Col>Online Payment</Col>
-                  <Col>GCash</Col>
-                </Row>
-                <Row>
-                  <Col>Payment Number</Col>
-                  <Col>{details.phoneNumber}</Col>
-                </Row>
-                <button onClick={handleOpenModal}>Open Cinema Seating</button>
-                <Row>
-                  <Col>Ticket Price</Col>
-                  <Col>{details.price}</Col>
-                </Row>
-                <Row>
-                  <Col>Total Price</Col>
-                  <Col>{details.price*3}</Col>
-                </Row>
-                <CinemaSeatingModal visible={isModalVisible} onCancel={handleCloseModal} />
-              </>
-            )
-          })
-        }
-      </Card>
-    </div>
+    <Card
+      title="Reservation"
+      bordered={false}
+      style={{
+        width: 300,
+      }}
+    >
+      {reservationDetails.map((details) => (
+        <div key={details.key}>
+          <Row>
+            <Col>Movie Title</Col>
+            <Col>{details.title}</Col>
+          </Row>
+          <Row>
+            <Col>Location</Col>
+            <Col>{details.location}</Col>
+          </Row>
+          <Row>
+            <Col>Schedule</Col>
+            <Col>{details.schedule}</Col>
+          </Row>
+          <Row>
+            <Col>Online Payment</Col>
+            <Col>GCash</Col>
+          </Row>
+          <Row>
+            <Col>Payment Number</Col>
+            <Col>{details.phoneNumber}</Col>
+          </Row>
+          <button onClick={handleOpenModal}>Open Cinema Seating</button>
+          <Row>
+            <Col>Ticket Price</Col>
+            <Col>{details.price}</Col>
+          </Row>
+          <Row>
+            <Col>Total Price</Col>
+            <Col>{details.price}</Col>
+          </Row>
+          <CinemaSeatingModal visible={isModalVisible} onCancel={handleCloseModal} />
+        </div>
+      ))}
+    </Card>
   );
 };
 
