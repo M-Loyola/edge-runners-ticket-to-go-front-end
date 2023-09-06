@@ -18,7 +18,7 @@ export const MovieList = () => {
   };
   useEffect(() => {
     intializeMovieByLocation();
-  }, [dispatch]);
+  });
   const intializeMovieByLocation = async () => {
     const moviesByCinema = await getMoviesInCinema();
     dispatch(resetCinemaMovieList(moviesByCinema.data));

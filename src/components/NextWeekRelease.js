@@ -25,7 +25,7 @@ export const NextWeekRelease = () => {
   useEffect(() => {
     getAllMovies();
     setInterval(stuff, 5000);
-  }, [dispatch]);
+  });
 
   function stuff() {
     ref.current?.goNext();
