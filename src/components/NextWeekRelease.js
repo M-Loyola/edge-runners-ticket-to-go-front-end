@@ -1,4 +1,4 @@
-import React, { useEffect, useEffectOnce } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ResponsiveContainer,
@@ -8,6 +8,11 @@ import { getMovies } from "../api/apiConfig";
 import "../assets/styles/Slide.css";
 import { resetMovieList } from "../reducers/ticketReducer";
 import { Slide } from "./Slide";
+function useEffectOnce(callback) {
+  useEffect(() => {
+    callback();
+  });
+}
 
 export const NextWeekRelease = () => {
   const ref = React.useRef(StackedCarousel);
@@ -23,9 +28,9 @@ export const NextWeekRelease = () => {
     state.ticket.movieList.filter((movie) => !movie.isShowing)
   );
 
-  useEffectOnce(()=> {
+  useEffectOnce(() => {
     getAllMovies();
-  })
+  });
 
   useEffect(() => {
     setInterval(stuff, 5000);
