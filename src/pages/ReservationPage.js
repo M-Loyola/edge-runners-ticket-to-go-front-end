@@ -1,34 +1,9 @@
-import { Button, Card, Col, Row } from 'antd';
+import { Card, Col, Row } from 'antd';
 import { useState } from "react";
-import CinemaSeatingModal from '../components/CinemaSeatingModal';
-import { useNavigate } from 'react-router-dom';
-import image2 from '../assets/icons/2.png';
-import '../assets/styles/ReservationPage.css';
 import { useSelector } from 'react-redux';
-
-// const reservationDetails = [
-//   {
-//     key: '1',
-//         title: 'Bumblebee',
-//         description: "Lorem ipsum just john wick things",
-//         location: 'Manila/Cinema One',
-//         duration: 140,
-//         schedule: "2023-09-04 10:30:00",
-//         reservedSeats: "A1,A2",
-//         phoneNumber: "09569453524",
-//         location: "Laguna",
-//         price: 240,
-//         cinemaName: "Sm Sta rosa Cinema 1",
-//         image: image2,
-//         action: (
-//           <>
-//             <Button type="primary">Reserve Now!</Button>
-//             <Button type="primary">Pay Now!</Button>
-//           </>
-//         ),
-//   },
-// ];
-
+import { useNavigate } from 'react-router-dom';
+import '../assets/styles/ReservationPage.css';
+import CinemaSeatingModal from '../components/CinemaSeatingModal';
 
 const ReservationPage = () => {
   const reservationDetails = [];
@@ -82,7 +57,7 @@ const ReservationPage = () => {
         <div key={details.key}>
             <Row>
             <Col>
-            <img src={details.image} />
+            <img src={details.image} alt={details.image} />
             </Col>
           </Row>
           <br/>
