@@ -4,11 +4,14 @@ import { Provider } from 'react-redux';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import { store } from './app/store';
+import { ReserveConfirmPageOne } from './components/ReserveConfirmPageOne';
+import { ReserveConfirmPageTwo } from './components/ReserveConfirmPageTwo';
 import { ErrorPage } from './pages/ErrorPage';
 import { Home } from './pages/Home';
-import reportWebVitals from './reportWebVitals';
-import { Cinemas } from './pages/Cinemas';
 import ReservationPage from './pages/ReservationPage';
+import ViewReservationPage from './pages/ViewReservationPage';
+import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -22,14 +25,24 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/cinemas",
+        path: "/view-reservation",
         index: true,
-        element: < Cinemas/>
+        element: < ViewReservationPage/>
       },
       {
         path: "/reservation",
         index: true,
         element: < ReservationPage/>
+      },
+      {
+        path: "/confirmationpage1",
+        index: true,
+        element: < ReserveConfirmPageOne/>
+      },
+      {
+        path: "/confirmationpage2",
+        index: true,
+        element: < ReserveConfirmPageTwo/>
       }
     ]
   }

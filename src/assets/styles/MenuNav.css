@@ -33,6 +33,18 @@
     padding-left: 5px;
 }
 
+@media (max-width: 1920px) {
+    .ticket {
+        padding-right: 75px;
+    }
+}
+
+@media (max-width: 800px) {
+    .ticket {
+        padding-right: 0px !important;
+    }
+}
+
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column-reverse;
@@ -46,6 +58,10 @@
         order: 1;
     }
 
+    .nav-bar {
+        padding-left: 60px;
+    }
+
     .ticket-container {
         order: 2;
     }
@@ -53,6 +69,7 @@
     .search-input {
         width: 320px;
     }
+
 }
 
 .custom-search-button {

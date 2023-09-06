@@ -1,4 +1,14 @@
-/* CinemaSeatingModal.css */
+.cinema-seating-modal {
+    width: 600px !important;
+}
+
+.cinema-seating-modal .ant-modal-content {
+    background-color: #D9D9D9 !important;
+}
+
+.cinema-seating-modal .ant-modal-content .ant-modal-header{
+    background-color: #D9D9D9 !important;
+}
 
 .cinema-seating-container {
     display: flex;
@@ -25,15 +35,21 @@
     margin: 0 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    border-radius: 5px;
+    background-color: white !important;
 }
 
 .selected {
-    background-color: #007bff;
+    background-color: #007bff !important;
     color: white;
     border: 1px solid #007bff;
 }
 
 @media (max-width: 768px) {
+    .cinema-seating-modal {
+        width: auto;
+    }
+
     .seat {
         width: 30px;
         height: 30px;
