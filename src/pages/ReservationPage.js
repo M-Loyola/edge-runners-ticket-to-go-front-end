@@ -2,26 +2,29 @@ import { Button, Card, Col, Row } from 'antd';
 import { useState } from "react";
 import CinemaSeatingModal from '../components/CinemaSeatingModal';
 import { useNavigate } from 'react-router-dom';
+import image2 from '../assets/icons/2.png';
+import '../assets/styles/ReservationPage.css';
 
 const reservationDetails = [
   {
     key: '1',
-    title: 'Bumblebee',
-    description: "Lorem ipsum just john wick things",
-    location: 'Manila/Cinema One',
-    duration: 140,
-    schedule: "2023-09-04 10:30:00",
-    reservedSeats: "A1,A2",
-    phoneNumber: "09569453524",
-    location: "Laguna",
-    price: 240,
-    cinemaName: "Sm Sta rosa Cinema 1",
-    action: (
-      <>
-        <Button type="primary">Reserve Now!</Button>
-        <Button type="primary">Pay Now!</Button>
-      </>
-    ),
+        title: 'Bumblebee',
+        description: "Lorem ipsum just john wick things",
+        location: 'Manila/Cinema One',
+        duration: 140,
+        schedule: "2023-09-04 10:30:00",
+        reservedSeats: "A1,A2",
+        phoneNumber: "09569453524",
+        location: "Laguna",
+        price: 240,
+        cinemaName: "Sm Sta rosa Cinema 1",
+        image: image2,
+        action: (
+          <>
+            <Button type="primary">Reserve Now!</Button>
+            <Button type="primary">Pay Now!</Button>
+          </>
+        ),
   },
 ];
 
@@ -54,6 +57,7 @@ const ReservationPage = () => {
   }; 
 
   return (
+    <div className="card-container-reservation">
     <Card
       title="Reservation"
       bordered={false}
@@ -68,6 +72,11 @@ const ReservationPage = () => {
 
           return (
         <div key={details.key}>
+            <Row>
+            <Col>
+            <img src={details.image} />
+            </Col>
+          </Row>
           <Row>
             <Col>Movie Title</Col>
             <Col>{details.title}</Col>
@@ -116,6 +125,7 @@ const ReservationPage = () => {
         Back
       </button>
     </Card>
+    </div>
   );
 };
 

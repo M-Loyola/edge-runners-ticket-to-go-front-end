@@ -44,8 +44,8 @@ export const ReserveConfirmPageOne = () => {
                 </Col>
                 <Col span={24}>
                     <Text className="text-container">
-                        <div>Reservation is on Process...</div>
-                        <div>Redirecting to another page in {countdown} seconds...</div>
+                        <br/> Reservation is on Process...<br />
+                        Redirecting to another page in {countdown} seconds...
                     </Text>
                 </Col>
             </Row>
