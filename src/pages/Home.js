@@ -21,8 +21,8 @@ export const Home = () => {
 
   return (
     <>
-      {showNextWeekRelease && <NextWeekRelease />}
       <MovieList />
+      {showNextWeekRelease && <NextWeekRelease />}
     </>
   );
 };

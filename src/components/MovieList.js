@@ -28,7 +28,7 @@ export const MovieList = () => {
     <div>
       <div className="movieList-container">
         <h1 className="movieList-title">
-          Currently Screening: Must-See Movies!
+          NOW SHOWING!
         </h1>
         <LandingDropdown
           onLocationChange={(location) => handleLocationChange(location)}
