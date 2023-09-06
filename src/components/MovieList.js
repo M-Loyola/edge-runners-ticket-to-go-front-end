@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import { useEffect, useState } from "react";
-import { NavLink, Navigate as navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../assets/styles/MovieList.css";
 import LandingDropdown from "./LandingDropdown";
 
