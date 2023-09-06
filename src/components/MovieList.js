@@ -42,7 +42,7 @@ export const MovieList = () => {
               .filter((movie) => movie.isShowing)
               .map((movie) => (
                 <Col key={movie.id} xs={4} lg={4}>
-                  <NavLink to={`/MovieLink${movie.id}`}>
+                  <NavLink to={"/reservation"} >
                     <div className="movieList-holder">
                       <img src={movie.image} alt={movie.title} />
                       <p>{movie.title}</p>

@@ -40,7 +40,7 @@ export const NextWeekRelease = () => {
         <h1 className="banner-text">Unlocking Next Week's Release!</h1>
       </div>
 
-      <div className="card" style={{ height: "600px" }}>
+      <div className="card">
         <div
           style={{
             width: "100%",
