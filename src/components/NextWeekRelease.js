@@ -8,7 +8,7 @@ import { getMovies } from "../api/apiConfig";
 import "../assets/styles/Slide.css";
 import { resetMovieList } from "../reducers/ticketReducer";
 import { Slide } from "./Slide";
-import { Spin } from 'antd';
+import { Spin } from "antd";
 
 export const NextWeekRelease = () => {
   const [isSpinning, setIsSpinning] = useState(true);
@@ -24,13 +24,20 @@ export const NextWeekRelease = () => {
   const upComingList = useSelector((state) =>
     state.ticket.movieList.filter((movie) => !movie.isShowing)
   );
+  const [isMount, setIsMount] = useState(false);
   useEffect(() => {
-    getAllMovies();
-    setInterval(stuff, 5000);
+    if (isMount) {
+      getAllMovies();
+    }
+
     setTimeout(() => {
       setIsSpinning(false);
-    }, 1000)
-  }, []);
+    }, 1000);
+    setInterval(stuff, 5000);
+    return () => {
+      setIsMount(false);
+    };
+  });
 
   function stuff() {
     ref.current?.goNext();
@@ -40,12 +47,15 @@ export const NextWeekRelease = () => {
     <Spin
       tip="Loading next week's releases."
       spinning={isSpinning}
-      size="large">
+      size="large"
+    >
       <div className="carousel-banner">
         <h1 className="banner-text">NEXT WEEK'S RELEASE!</h1>
       </div>
       <div className="card">
-        <div style={{ width: "100%", position: "relative", userSelect: "none" }}>
+        <div
+          style={{ width: "100%", position: "relative", userSelect: "none" }}
+        >
           <ResponsiveContainer
             carouselRef={ref}
             render={(width, carouselRef) => {
@@ -65,6 +75,6 @@ export const NextWeekRelease = () => {
           />
         </div>
       </div>
-    </Spin >
+    </Spin>
   );
 };
