@@ -31,7 +31,7 @@ export const MovieList = () => {
   }
   const moviesByLocation = useSelector((state) => state.ticket.cinemaMovieList);
   return (
-    <div style={{border: "1px solid red"}}>
+    <div>
       <div className="movieList-container">
         <h1 className="movieList-title">
           NOW SHOWING!
