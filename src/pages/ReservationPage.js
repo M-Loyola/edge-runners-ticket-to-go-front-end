@@ -1,4 +1,6 @@
-import { Button, Card, Row, Col } from 'antd';
+import { Button, Card, Col, Row } from 'antd';
+import { useState } from "react";
+import CinemaSeatingModal from '../components/CinemaSeatingModal';
 
 const reservationDetails = [
   {
@@ -24,6 +26,14 @@ const reservationDetails = [
 
 const ReservationPage = () => {
   // reservationDetails.map((details) => console.log(details))
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleOpenModal = () => {
+    setIsModalVisible(true);
+  };
+  
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+  };
   return (
     <div>
       <Card
@@ -57,6 +67,7 @@ const ReservationPage = () => {
                   <Col>Payment Number</Col>
                   <Col>{details.phoneNumber}</Col>
                 </Row>
+                <button onClick={handleOpenModal}>Open Cinema Seating</button>
                 <Row>
                   <Col>Ticket Price</Col>
                   <Col>{details.price}</Col>
@@ -65,6 +76,7 @@ const ReservationPage = () => {
                   <Col>Total Price</Col>
                   <Col>{details.price*3}</Col>
                 </Row>
+                <CinemaSeatingModal visible={isModalVisible} onCancel={handleCloseModal} />
               </>
             )
           })
