@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useEffectOnce } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ResponsiveContainer,
@@ -22,8 +22,12 @@ export const NextWeekRelease = () => {
   const upComingList = useSelector((state) =>
     state.ticket.movieList.filter((movie) => !movie.isShowing)
   );
-  useEffect(() => {
+
+  useEffectOnce(()=> {
     getAllMovies();
+  })
+
+  useEffect(() => {
     setInterval(stuff, 5000);
   });
 
