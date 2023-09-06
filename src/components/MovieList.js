@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import { useEffect, useState } from "react";
-import { NavLink, Navigate as navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../assets/styles/MovieList.css";
 import LandingDropdown from "./LandingDropdown";
 
@@ -31,7 +31,7 @@ export const MovieList = () => {
   }
   const moviesByLocation = useSelector((state) => state.ticket.cinemaMovieList);
   return (
-    <div style={{border: "1px solid red"}}>
+    <div>
       <div className="movieList-container">
         <h1 className="movieList-title">
           NOW SHOWING!
