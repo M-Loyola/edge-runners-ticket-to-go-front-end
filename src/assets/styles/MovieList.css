@@ -32,7 +32,9 @@ p {
     color: black;
     font-weight: bold;
 }
-
+.movieList-container{
+    margin: 1%;
+}
   
 @media (min-width: 390px) {
     .movieList-rowOne .ant-col {
@@ -40,10 +42,10 @@ p {
         max-width: 50%;
     }
     .movieList-title {
-        font-size: 10px;
+        font-size: 18px;
     }
     p {
-        font-size: 11px;
+        font-size: 12px;
     }
 }
 
@@ -53,10 +55,10 @@ p {
         max-width: 33.333%;
     }
     .movieList-title {
-        font-size: 15px;
+        font-size: 20px;
     }
     p {
-        font-size: 5px;
+        font-size: 12px;
     }
 }
 
@@ -66,7 +68,7 @@ p {
         max-width: 20%;
     }
     .movieList-title {
-        font-size: 30px;
+        font-size: 35px;
     }
     p {
         font-size: 15px;

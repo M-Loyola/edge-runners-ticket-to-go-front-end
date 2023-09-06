@@ -7,15 +7,16 @@
 .card {
   height: 565px;
 }
+
 .card-card {
   transition: all 200ms ease;
   cursor: pointer;
   width: auto;
   border-radius: 15px;
-  height:550px;
+  height: 550px;
   position: relative;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.05);
   background-color: transparent;
 }
@@ -64,6 +65,7 @@
   transition: opacity 200ms ease;
 
 }
+
 .react-stacked-center-carousel-slide-0 .card-card .cover {
   transition: opacity 200ms ease, z-index 0ms 200ms;
 }
@@ -79,89 +81,104 @@
 }
 
 .banner-text {
-  background-color: #D2DE32;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 100%;
   text-align: center;
   padding: 10px;
+  border-radius: 5px;
 }
 
 @media (min-width: 390px) {
-.react-stacked-center-carousel {
-  padding: 5px 0;
-  height: 250px;
+  .react-stacked-center-carousel {
+    padding: 5px 0;
+    height: 250px;
+  }
+
+  .card-card .cover-image {
+    max-width: 100%;
+    height: 250px;
+  }
+
+  .card-card {
+    height: 250px;
+  }
+
+  .fill {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card {
+    height: 270px;
+  }
+
+  .banner-text {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 0.85em;
+  }
 }
-.card-card .cover-image {
-  max-width: 100%;
-  height: 250px;
-}
-.card-card {
-  height:250px;
-}
-.fill {
-  width: 100%;
-  height: 100%;
-}
-.card{
-  height: 270px;
-}
-.banner-text {
-  font-size: 0.85em;
-}
-p {
-  font-size: 0.85em;
-}
-}  
 
 @media (min-width: 901px) {
-.react-stacked-center-carousel {
-  height: 450px; 
-}
-.card-card .cover-image {
-  max-width: 100%;
-  height: 450px;
-}
-.card-card {
-  height:450px;
-}
-.fill {
-  width: 100%;
-  height: 100%;
-}
-.card{
-  height: 460px;
-}
-.banner-text {
-  font-size: 1.5em;
-}
-p {
-  font-size: 1.5em;
-}
+  .react-stacked-center-carousel {
+    height: 450px;
+  }
+
+  .card-card .cover-image {
+    max-width: 100%;
+    height: 450px;
+  }
+
+  .card-card {
+    height: 450px;
+  }
+  .banner-text {
+    font-size: 35px;
+  }
+
+
+  .fill {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card {
+    height: 460px;
+  }
+
+  p {
+    font-size: 1.5em;
+  }
 }
 
 @media (min-width: 500px) and (max-width: 900px) {
-.react-stacked-center-carousel {
-  height: 400px; 
-}
-.card-card .cover-image {
-  max-width: 100%;
-  height: 400px;
-}
-.card-card {
-  height:400px;
-}
-.fill {
-  width: 100%;
-  height: 100%;
-}
-.card{
-  height: 410px;
-}
-.banner-text  {
-  font-size: 1.5em;
-}
-p {
-  font-size: 1.55em;
-}
+  .react-stacked-center-carousel {
+    height: 400px;
+  }
+
+  .card-card .cover-image {
+    max-width: 100%;
+    height: 400px;
+  }
+
+  .card-card {
+    height: 400px;
+  }
+
+  .fill {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card {
+    height: 410px;
+  }
+
+  .banner-text {
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 20px;
+  }
 }

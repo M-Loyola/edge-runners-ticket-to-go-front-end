@@ -34,10 +34,8 @@ export const NextWeekRelease = () => {
 
   return (
     <>
-      <h2>"Unleash Your Cinematic Journey: Stream, Watch, Repeat!"</h2>
-      <span>Reserve your ticket now!</span>
       <div className="carousel-banner">
-        <h1 className="banner-text">Unlocking Next Week's Release!</h1>
+        <h1 className="banner-text">NEXT WEEK'S RELEASE!</h1>
       </div>
 
       <div className="card" style={{ height: "600px" }}>
