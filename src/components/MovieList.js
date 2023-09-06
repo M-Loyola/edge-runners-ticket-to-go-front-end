@@ -1,12 +1,12 @@
 import { Col, Row } from "antd";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate as navigate } from "react-router-dom";
 import "../assets/styles/MovieList.css";
 import LandingDropdown from "./LandingDropdown";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getMoviesInCinema } from "../api/apiConfig";
-import { resetCinemaMovieList } from "../reducers/ticketReducer";
+import { getMovieDetailsInCinema, getMoviesInCinema } from "../api/apiConfig";
+import { resetCinemaMovieList, setSelectedMovie } from "../reducers/ticketReducer";
 
 export const MovieList = () => {
   const [locationValue, setLocationValue] = useState("Manila");
@@ -23,9 +23,15 @@ export const MovieList = () => {
     const moviesByCinema = await getMoviesInCinema();
     dispatch(resetCinemaMovieList(moviesByCinema.data));
   };
+  const handleClickMovie = (movie) => {
+    getMovieDetailsInCinema(movie.id).then((response) => {
+      const data = {...response.data, image: movie.image};
+      dispatch(setSelectedMovie(data));
+    })
+  }
   const moviesByLocation = useSelector((state) => state.ticket.cinemaMovieList);
   return (
-    <div>
+    <div style={{border: "1px solid red"}}>
       <div className="movieList-container">
         <h1 className="movieList-title">
           NOW SHOWING!
@@ -42,7 +48,7 @@ export const MovieList = () => {
               .filter((movie) => movie.isShowing)
               .map((movie) => (
                 <Col key={movie.id} xs={4} lg={4}>
-                  <NavLink to={"/reservation"} >
+                  <NavLink onClick={() => handleClickMovie(movie)} to="/reservation">
                     <div className="movieList-holder">
                       <img src={movie.image} alt={movie.title} />
                       <p>{movie.title}</p>

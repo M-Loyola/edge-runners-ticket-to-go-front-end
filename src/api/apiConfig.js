@@ -6,3 +6,6 @@ export const getMovies = () => {
 export const getMoviesInCinema = () => {
   return api.get(`/cinemas`);
 };
+export const getMovieDetailsInCinema = (cinemaMovieId) => {
+  return api.get(`/movies/${cinemaMovieId}/reservationDetails`);
+}
