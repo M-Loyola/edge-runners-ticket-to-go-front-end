@@ -5,6 +5,7 @@ import { useState } from "react";
 import { NavLink, useLocation, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ReactComponent as AccountIcon } from "../assets/icons/account.svg";
+import { ReactComponent as LoggedInAccountIcon } from "../assets/icons/logged-in-account.svg";
 import "../assets/styles/MenuNav.css";
 import { setSearchInput } from "../reducers/ticketReducer";
 
@@ -73,7 +74,7 @@ const MenuNav = () => {
           </Link>
         ) : (
           <Link to="/userAccount" className="account-link">
-            <AccountIcon className="account-icon" />
+            <LoggedInAccountIcon className="account-icon" />
           </Link>
         )}
       </div>

@@ -49,10 +49,12 @@ export const MovieList = () => {
       </div>
       <Row gutter={16} className="movieList-rowOne">
         {moviesByLocation
+        // eslint-disable-next-line
           .filter((cinema) => cinema.location === locationValue)
           .map((selectedCinema) =>
             selectedCinema.movieList
               .filter((movie) => movie.isShowing)
+              // eslint-disable-next-line
               .map((movie) => {
                 if (movie.title.includes(selectorSearchInput)) {
                   hasMatch = true;
