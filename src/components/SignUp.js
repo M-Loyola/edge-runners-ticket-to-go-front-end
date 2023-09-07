@@ -1,8 +1,8 @@
+import { Alert, Button, Form, Input } from "antd";
 import { useState } from "react";
-import { Alert, Row, Col, Input, Button, Form } from "antd";
-import "../assets/styles/AccountPage.css";
-import { signUp } from "../api/apiConfig";
 import { useNavigate } from "react-router-dom";
+import { signUp } from "../api/apiConfig";
+import "../assets/styles/AccountPage.css";
 
 export const SignUp = () => {
   const [formData, setFormData] = useState({
