@@ -26,6 +26,9 @@ const ticketReducer = createSlice({
     setLoggedInUser: (state, action) => {
       state.user = action.payload;
     },
+    loggedOutUser: (state, action) => {
+      state.user = action.payload;
+    },
   },
 });
 
@@ -35,5 +38,6 @@ export const {
   resetCinemaList,
   setSelectedMovie,
   setLoggedInUser,
+  loggedOutUser,
 } = ticketReducer.actions;
 export default ticketReducer.reducer;
