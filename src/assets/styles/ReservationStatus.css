@@ -15,11 +15,12 @@
 
 .reservationMain-container {
     border: 1px solid black;
+    border-radius: 20px;
     
 }
 .ant-col{
     padding: 30px;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 /* .reservationMain-container .reservation-container {
