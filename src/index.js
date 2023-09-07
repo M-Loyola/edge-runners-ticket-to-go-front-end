@@ -13,6 +13,9 @@ import ViewReservationPage from './pages/ViewReservationPage';
 import reportWebVitals from './reportWebVitals';
 import { AccountPage } from './pages/AccountPage';
 import { UserAccount } from './components/UserAccount';
+import { PaymentConfirmationPageOne } from './components/PaymentConfirmationPageOne';
+import { PaymentConfirmationPageTwo } from './components/PaymentConfirmationPageTwo';
+import { PaymentConfirmationPageThree } from './components/PaymentConfirmationPageThree';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -55,6 +58,21 @@ const router = createBrowserRouter([
         path: "/UserAccount",
         index: false,
         element: < UserAccount/>
+      },
+      {
+        path: "/paymentConfirmationPageOne",
+        index: false,
+        element: <PaymentConfirmationPageOne />
+      },
+      {
+        path: "/paymentConfirmationPageTwo",
+        index: false,
+        element: <PaymentConfirmationPageTwo />
+      },
+      {
+        path: "/paymentConfirmationPageThree",
+        index: false,
+        element: <PaymentConfirmationPageThree />
       }
     ]
   }
