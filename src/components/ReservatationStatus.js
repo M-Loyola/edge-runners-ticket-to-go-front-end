@@ -7,7 +7,7 @@ const reservationData = [
     {
         movieTitle: "Bumblebee",
         date: "09/03/23",
-        cinemaLocation: "SM Manila",
+        Location: "SM Manila",
         schedule: "1:00 PM to 3:00 PM",
         status: "Reserved",
         imageUrl: "https://i.pinimg.com/originals/5f/1c/3f/5f1c3f76297204de2346b0bfce854000.jpg",
@@ -15,12 +15,13 @@ const reservationData = [
     {
         movieTitle: "Bumblebee",
         date: "09/03/23",
-        cinemaLocation: "SM Manila",
+        Location: "SM Manila",
         schedule: "1:00 PM to 3:00 PM",
         status: "Reserved",
         imageUrl: "https://i.pinimg.com/originals/5f/1c/3f/5f1c3f76297204de2346b0bfce854000.jpg",
     }
 ];
+
 
 export const ReservationStatus = () => {
     return (
@@ -39,7 +40,7 @@ export const ReservationStatus = () => {
                             <Text>
                                 Movie Title: {reservation.movieTitle}<br />
                                 Date: {reservation.date}<br />
-                                Cinema Location: {reservation.cinemaLocation}<br />
+                                Location: {reservation.Location}<br />
                                 Schedule: {reservation.schedule}<br />
                                 Status: {reservation.status}<br />
                             </Text>
