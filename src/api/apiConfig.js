@@ -6,8 +6,8 @@ export const getMovies = () => {
 export const getMoviesInCinema = () => {
   return api.get(`/cinemas`);
 };
-export const getMovieDetailsInCinema = (cinemaMovieId) => {
-  return api.get(`/movies/${cinemaMovieId}/reservationDetails`);
+export const getMovieDetailsInCinema = (movieId, cinemaId) => {
+  return api.get(`/movies/${movieId}/${cinemaId}/reservationDetails`);
 };
 export const creatNewOrder = (orderDetails) => {
   return api.post(`/orders`, orderDetails);
@@ -25,8 +25,8 @@ export const signUp = (user) => {
 
 export const getUserOrderList = (userId) => {
   return api.get(`/users/${userId}/orders`);
-}
+};
 
 export const updateOrderPaidStatus = (orderNumber) => {
   return api.put(`/orders/${orderNumber}`);
-}
+};

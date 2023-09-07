@@ -92,104 +92,84 @@ export const SignUp = () => {
   return (
     <Form onSubmit={handleFormSubmit} className="form-container">
       <div className="form-row">
-      <label className="label-col">First Name:</label>
-            <Input
-              type="text"
-              name="firstName"
-              placeholder="ex. Juan"
-              value={formData.firstName}
-              onChange={handleInputChange}
-            />
-            {showFirstNameSpacesAlert && (
-              <Alert
-                message="Please remove extra spaces"
-                type="error"
-                showIcon
-              />
-            )}
-          </div>
+        <label className="label-col">First Name:</label>
+        <Input
+          type="text"
+          name="firstName"
+          placeholder="ex. Juan"
+          value={formData.firstName}
+          onChange={handleInputChange}
+        />
+        {showFirstNameSpacesAlert && (
+          <Alert message="Please remove extra spaces" type="error" showIcon />
+        )}
+      </div>
 
-          <div className="form-row">
-          <label className="label-col">Last Name:</label>
-            <Input
-              type="text"
-              name="lastName"
-              placeholder="ex. Dela Cruz"
-              value={formData.lastName}
-              onChange={handleInputChange}
-            />
-            {showLastNameSpacesAlert && (
-              <Alert
-                message="Please remove extra spaces"
-                type="error"
-                showIcon
-              />
-            )}
-        </div>
+      <div className="form-row">
+        <label className="label-col">Last Name:</label>
+        <Input
+          type="text"
+          name="lastName"
+          placeholder="ex. Dela Cruz"
+          value={formData.lastName}
+          onChange={handleInputChange}
+        />
+        {showLastNameSpacesAlert && (
+          <Alert message="Please remove extra spaces" type="error" showIcon />
+        )}
+      </div>
 
-        <div className="form-row">
+      <div className="form-row">
         <label className="label-col">Email Address:</label>
-            <Input
-              type="text"
-              name="email"
-              placeholder="ex. JuanDelaCruz@JuanDelaCruz.com"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-            {showEmailSpacesAlert && (
-              <Alert
-                message="Please remove extra spaces"
-                type="error"
-                showIcon
-              />
-            )}
-            {showEmailAlert && (
-              <Alert message="Invalid email domain!" type="error" showIcon />
-            )}
-        </div>
+        <Input
+          type="text"
+          name="email"
+          placeholder="ex. JuanDelaCruz@JuanDelaCruz.com"
+          value={formData.email}
+          onChange={handleInputChange}
+        />
+        {showEmailSpacesAlert && (
+          <Alert message="Please remove extra spaces" type="error" showIcon />
+        )}
+        {showEmailAlert && (
+          <Alert message="Invalid email domain!" type="error" showIcon />
+        )}
+      </div>
 
-        <div className="form-row">
+      <div className="form-row">
         <label className="label-col">Password:</label>
-            <Input
-              type="password"
-              name="password"
-              placeholder="ex. iluvj3lly4c3"
-              value={formData.password}
-              onChange={handleInputChange}
-            />
-            {showPasswordSpacesAlert && (
-              <Alert
-                message="Please remove extra spaces"
-                type="error"
-                showIcon
-              />
-            )}
-        </div>
+        <Input
+          type="password"
+          name="password"
+          placeholder="ex. iluvj3lly4c3"
+          value={formData.password}
+          onChange={handleInputChange}
+        />
+        {showPasswordSpacesAlert && (
+          <Alert message="Please remove extra spaces" type="error" showIcon />
+        )}
+      </div>
 
-        <div className="form-row">
+      <div className="form-row">
         <label className="label-col">Gcash Number:</label>
-            <Input
-              type="text"
-              name="mobile_number"
-              placeholder="09999999999"
-              value={formData.mobile_number}
-              onChange={handleInputChange}
-            />
-            {showGcashNumberSpacesAlert && (
-              <Alert
-                message="Please remove extra spaces"
-                type="error"
-                showIcon
-              />
-            )}
-            {showGcashNumberValid && (
-              <Alert
-                message="Please use valid Gcash Number"
-                type="error"
-                showIcon
-              />
-            )}
-        </div>
+        <Input
+          type="text"
+          name="mobile_number"
+          placeholder="09999999999"
+          value={formData.mobile_number}
+          onChange={handleInputChange}
+        />
+        {showGcashNumberSpacesAlert && (
+          <Alert message="Please remove extra spaces" type="error" showIcon />
+        )}
+        {showGcashNumberValid && (
+          <Alert
+            message="Please use valid Gcash Number"
+            type="error"
+            showIcon
+          />
+        )}
+      </div>
 
       <Button
         type="submit"
