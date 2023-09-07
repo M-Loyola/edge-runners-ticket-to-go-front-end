@@ -113,3 +113,20 @@
       max-width: 400px; 
     }
   }
+
+  .password-input {
+    position: relative;
+  }
+
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .eye-icon {
+    width: 20px; 
+    height: 20px;
+  }
