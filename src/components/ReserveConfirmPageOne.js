@@ -1,15 +1,20 @@
 import { Typography, Row, Col } from 'antd';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 import "../assets/styles/ReserveConfirmPageOne.css";
+const moment = require("moment");
 
 
 const { Text } = Typography;
 
 export const ReserveConfirmPageOne = () => {
-    const [countdown, setCountdown] = useState(20);
+    const [countdown, setCountdown] = useState(10);
     const navigate = useNavigate();
-
+    const orderDetails = useLocation().state;
+    const userInfo = useSelector(state => state.ticket.user);
+    const currentDateTime = useSelector((state) => state.ticket.currentDateTime);
+    const deadlineDateTime = moment(currentDateTime).add(30, "m").format("MMMM DD, YYYY on h:mm A");
     useEffect(() => {
         const delay = setTimeout(() => {
             if (countdown === 1) {
@@ -19,33 +24,24 @@ export const ReserveConfirmPageOne = () => {
             }
         }, 1000);
         return () => clearTimeout(delay);
-    }, [countdown, navigate]);
-    const reservationData = {
-        location: "SM Manila",
-        movieTitle: "Bumblebee",
-        scheduledDate: "09/03/23",
-        timeRange: "1:00 PM to 3:00 PM",
-        paymentDeadline: "09/02/23",
-        price: "$7"
-    };
+    }, [countdown]);
     return (
         <div className="reserve-container" >
             <Row gutter={[0, 16]}>
                 <Col span={24}>
                     <Text className="text-container">
-                        Hello,<br />
-                        You've reserved a seat at {reservationData.location} Cinema One, for the
-                        movie "{reservationData.movieTitle}" scheduled <br />
-                        on {reservationData.scheduledDate} from {reservationData.timeRange}.<br /><br />
+                        Hello, {userInfo.firstName + " " + userInfo.lastName}<br /> 
+                        You've reserved a seat at {orderDetails.location} Cinema One, for the
+                        movie "{orderDetails.title}" scheduled <br />
+                        {moment(orderDetails.schedule).format("MMMM DD, YYYY on h:mm A")}
                     </Text>
                 </Col>
-
                 <Col span={24}>
                     <Text className="text-container">
                         The total cost for your <br />
-                        reservation is {reservationData.price}. To secure your <br />
+                        reservation is ₱{orderDetails.totalPrice}. To secure your <br />
                         seat, please make the payment
-                        before {reservationData.paymentDeadline}.<br /><br />
+                        before {deadlineDateTime}.<br /><br />
                     </Text>
                 </Col>
                 
