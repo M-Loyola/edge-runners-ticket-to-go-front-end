@@ -8,6 +8,7 @@ const ticketReducer = createSlice({
     cinemaList: [],
     selectedMovie: {},
     selectedMovieImage: "",
+    currentDateTime: "",
     user: {
       id: 1,
       firstName: "Group 1",
@@ -29,9 +30,12 @@ const ticketReducer = createSlice({
     setSelectedMovie: (state, action) => {
       state.selectedMovie = action.payload;
     },
+    setCurrentDateTime: (state, action) => {
+      state.currentDateTime = action.payload;
+    }
   },
 });
 
-export const { resetMovieList, resetCinemaMovieList, resetCinemaList, setSelectedMovie } =
+export const { resetMovieList, resetCinemaMovieList, resetCinemaList, setSelectedMovie, setCurrentDateTime } =
   ticketReducer.actions;
 export default ticketReducer.reducer;
