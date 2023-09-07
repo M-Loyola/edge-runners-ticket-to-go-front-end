@@ -32,7 +32,7 @@ export const UserAccount = () => {
 
           <Col span={24}>
             <Text className="contactnumber-container">
-              Contact {userData.phoneNumber}
+              Contact {userData.mobile_number}
             </Text>
           </Col>
 
