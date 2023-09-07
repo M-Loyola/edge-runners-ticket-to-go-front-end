@@ -90,10 +90,9 @@ export const SignUp = () => {
   };
 
   return (
-    <Form onSubmit={handleFormSubmit}>
-      <Row gutter={[40, 40]}>
-        <Col span={30}>
-          <Form.Item label="First Name">
+    <Form onSubmit={handleFormSubmit} className="form-container">
+      <div className="form-row">
+      <label className="label-col">First Name:</label>
             <Input
               type="text"
               name="firstName"
@@ -108,13 +107,10 @@ export const SignUp = () => {
                 showIcon
               />
             )}
-          </Form.Item>
-        </Col>
-      </Row>
+          </div>
 
-      <Row>
-        <Col span={35}>
-          <Form.Item label="Last Name">
+          <div className="form-row">
+          <label className="label-col">Last Name:</label>
             <Input
               type="text"
               name="lastName"
@@ -129,13 +125,10 @@ export const SignUp = () => {
                 showIcon
               />
             )}
-          </Form.Item>
-        </Col>
-      </Row>
+        </div>
 
-      <Row>
-        <Col span={100}>
-          <Form.Item label="Email Address">
+        <div className="form-row">
+        <label className="label-col">Email Address:</label>
             <Input
               type="text"
               name="email"
@@ -153,13 +146,10 @@ export const SignUp = () => {
             {showEmailAlert && (
               <Alert message="Invalid email domain!" type="error" showIcon />
             )}
-          </Form.Item>
-        </Col>
-      </Row>
+        </div>
 
-      <Row>
-        <Col span={80}>
-          <Form.Item label="Password">
+        <div className="form-row">
+        <label className="label-col">Password:</label>
             <Input
               type="password"
               name="password"
@@ -174,13 +164,10 @@ export const SignUp = () => {
                 showIcon
               />
             )}
-          </Form.Item>
-        </Col>
-      </Row>
+        </div>
 
-      <Row>
-        <Col span={40}>
-          <Form.Item label="Gcash Number">
+        <div className="form-row">
+        <label className="label-col">Gcash Number:</label>
             <Input
               type="text"
               name="mobile_number"
@@ -202,9 +189,8 @@ export const SignUp = () => {
                 showIcon
               />
             )}
-          </Form.Item>
-        </Col>
-      </Row>
+        </div>
+
       <Button
         type="submit"
         className="submit-button"

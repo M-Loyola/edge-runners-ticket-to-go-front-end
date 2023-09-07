@@ -50,27 +50,31 @@ export const SignIn = () => {
   };
 
   return (
-    <>
-      <div className="form-group">
-        <label htmlFor="email">Email: </label>
+    <div className="form-container">
+      <div className="form-row">
+        <label className="label-col" htmlFor="email">Email: </label>
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={handleEmailOnChange}
+          className="ant-tabs-tabpane" 
         /> 
         {showEmailAlert && (
             <Alert message="Invalid email domain!" type="error" showIcon />
         )}
       </div>
-      <div className="form-group">
-        <label htmlFor="password">Password: </label>
+      <div className="form-row">
+        <label className="label-col" htmlFor="password">Password: </label>
         <input
           type={showPassword ? "text" : "password"}
           placeholder="Password"
           value={password}
           onChange={handlePasswordOnChange}
+          className="ant-tabs-tabpane" 
         />
+        <br/>
+        <br/>
         <span className="password-toggle" onClick={togglePasswordVisibility}>
             <img
               src={showPassword ? eyeslash : eye}
@@ -79,10 +83,10 @@ export const SignIn = () => {
             />
           </span>
       </div>
-      <button type="submit" onClick={handleBack}>
+      <button type="submit" onClick={handleBack} className="log-in-button" style={{ backgroundColor: "black", color: "#D2DE32" }}>
         Log In
       </button>
 
-    </>
+      </div>
   );
 };
