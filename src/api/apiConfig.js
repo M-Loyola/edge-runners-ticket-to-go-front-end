@@ -14,5 +14,5 @@ export const creatNewOrder = (orderDetails) => {
 }
 
 export const updateOccupiedSeats = (cinemaMovieId, newReservedSeats) => {
-  return api.put(`/movies/${cinemaMovieId}/updateOccupiedSeats`, newReservedSeats);
+  return api.put(`/movies/${cinemaMovieId}/occupiedSeats`, newReservedSeats);
 }
