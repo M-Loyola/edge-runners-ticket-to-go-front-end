@@ -31,7 +31,7 @@ export const MovieList = () => {
     dispatch(resetCinemaMovieList(moviesByCinema.data));
   };
   const handleClickMovie = (movie) => {
-    getMovieDetailsInCinema(movie.id).then((response) => {
+    getMovieDetailsInCinema(movie.id, movie.cinemaId).then((response) => {
       const data = { ...response.data, image: movie.image };
       dispatch(setSelectedMovie(data));
     });
@@ -49,7 +49,6 @@ export const MovieList = () => {
       </div>
       <Row gutter={16} className="movieList-rowOne">
         {moviesByLocation
-        // eslint-disable-next-line
           .filter((cinema) => cinema.location === locationValue)
           .map((selectedCinema) =>
             selectedCinema.movieList
@@ -61,7 +60,12 @@ export const MovieList = () => {
                   return (
                     <Col key={movie.id} xs={4} lg={4}>
                       <NavLink
-                        onClick={() => handleClickMovie(movie)}
+                        onClick={() =>
+                          handleClickMovie({
+                            ...movie,
+                            cinemaId: selectedCinema.id,
+                          })
+                        }
                         to={path}
                       >
                         <div className="movieList-holder">

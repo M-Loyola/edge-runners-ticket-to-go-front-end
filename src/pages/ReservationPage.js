@@ -11,6 +11,7 @@ const ReservationPage = () => {
   const reservationDetails = [];
   const dispatch = useDispatch();
   const valToBePushed = useSelector((state) => state.ticket.selectedMovie);
+
   reservationDetails.push(valToBePushed);
   const userInfo = JSON.parse(localStorage.getItem("user"));
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -57,7 +58,7 @@ const ReservationPage = () => {
       });
     });
   };
-  const handlePayNow = async() => {
+  const handlePayNow = async () => {
     const orderDetails = {
       title: reservationDetails[0].title,
       cinemaName: reservationDetails[0].cinemaName,
@@ -81,7 +82,7 @@ const ReservationPage = () => {
         navigate("/paymentConfirmationPageOne", { state: orderDetails });
       });
     });
-  }
+  };
   const hasNoSelectedSeats = () => {
     if (selectedSeats.length === 0) {
       return true;
@@ -105,34 +106,63 @@ const ReservationPage = () => {
               <div key={details.key}>
                 <Row>
                   <Col>
-                    <img src={details.image} alt={details.image} style={{ width: '500px', height: '500px'}}/>
+                    <img
+                      src={details.image}
+                      alt={details.image}
+                      style={{ width: "500px", height: "500px" }}
+                    />
                   </Col>
                 </Row>
                 <br />
                 <div className="movie-details-container">
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Movie Title: </Col>
-                    <Col span={16} className="content-col">{details.title}</Col>
+                    <Col span={8} className="label-col">
+                      Movie Title:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {details.title}
+                    </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Cinema Name: </Col>
-                    <Col span={16} className="content-col">{details.cinemaName}</Col>
+                    <Col span={8} className="label-col">
+                      Cinema Name:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {details.cinemaName}
+                    </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Location: </Col>
-                    <Col span={16} className="content-col">{details.location}</Col>
+                    <Col span={8} className="label-col">
+                      Location:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {details.location}
+                    </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Schedule: </Col>
-                    <Col span={16} className="content-col">{details.schedule}</Col>
+                    <Col span={8} className="label-col">
+                      Schedule:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {details.schedule}
+                    </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Online Payment: </Col>
-                    <Col span={16} className="content-col"> &nbsp;GCash</Col>
+                    <Col span={8} className="label-col">
+                      Online Payment:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {" "}
+                      &nbsp;GCash
+                    </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Payment Number: </Col>
-                    <Col span={16} className="content-col">{userInfo.mobile_number}</Col>
+                    <Col span={8} className="label-col">
+                      Payment Number:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {userInfo.mobile_number}
+                    </Col>
                   </Row>
                   <button
                     className="open-cinema-seating"
@@ -141,20 +171,36 @@ const ReservationPage = () => {
                     Open Cinema Seating
                   </button>
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Selected Seats: </Col>
-                    <Col span={16} className="content-col">{selectedSeats.join(", ")}</Col>
+                    <Col span={8} className="label-col">
+                      Selected Seats:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {selectedSeats.join(", ")}
+                    </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Quantity: </Col>
-                    <Col span={16} className="content-col">{quantity}</Col>
+                    <Col span={8} className="label-col">
+                      Quantity:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {quantity}
+                    </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Ticket Price: </Col>
-                    <Col span={16} className="content-col">{details.price}</Col>
+                    <Col span={8} className="label-col">
+                      Ticket Price:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {details.price}
+                    </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
-                    <Col span={8} className="label-col">Total Price: </Col>
-                    <Col span={16} className="content-col">{totalPrice}</Col>
+                    <Col span={8} className="label-col">
+                      Total Price:{" "}
+                    </Col>
+                    <Col span={16} className="content-col">
+                      {totalPrice}
+                    </Col>
                   </Row>
                 </div>
                 <CinemaSeatingModal
@@ -172,7 +218,13 @@ const ReservationPage = () => {
           >
             Reserve now!
           </button>
-          <button className="button" onClick={handlePayNow} disabled={hasNoSelectedSeats()} >Pay now!</button>
+          <button
+            className="button"
+            onClick={handlePayNow}
+            disabled={hasNoSelectedSeats()}
+          >
+            Pay now!
+          </button>
           <button className="back-button" onClick={handleBack}>
             Back
           </button>
