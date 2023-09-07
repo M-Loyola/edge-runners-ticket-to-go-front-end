@@ -9,23 +9,38 @@ import { ReactComponent as LoggedInAccountIcon } from "../assets/icons/logged-in
 import "../assets/styles/MenuNav.css";
 import { setSearchInput } from "../reducers/ticketReducer";
 
-const menuItems = [
-  {
-    key: "home",
-    label: "Home",
-    icon: <HomeFilled />,
-    link: "/",
-  },
-  {
-    key: "view",
-    label: "View Reservation",
-    icon: <EyeOutlined />,
-    link: "/view-reservation",
-  },
-];
+
 const MenuNav = () => {
+const signedInData = localStorage.getItem("user");
+  const menuItems = signedInData !== null ? [
+    {
+      key: "home",
+      label: "Home",
+      icon: <HomeFilled />,
+      link: "/",
+    },
+    {
+      key: "view",
+      label: "View Reservation",
+      icon: <EyeOutlined />,
+      link: "/view-reservation",
+    },
+  ] : [
+    {
+      key: "home",
+      label: "Home",
+      icon: <HomeFilled />,
+      link: "/",
+    },
+    {
+      key: "view",
+      label: "View Reservation",
+      icon: <EyeOutlined />,
+      link: "/AccountPage",
+    },
+  ];
     const dispatch = useDispatch();
-  const signedInData = localStorage.getItem("user");
+  
   const location = useLocation();
   const currentPath = location.pathname;
     const [searchValue, setSearchValue] = useState("");

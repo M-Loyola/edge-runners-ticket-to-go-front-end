@@ -9,7 +9,7 @@ export const PaymentConfirmationPageThree = () => {
             <Row gutter={[0, 16]}>
                 <Col span={24}>
                     <Text className="text-container">
-                        Your Ticket is Now is payed <br />
+                        Your Ticket is Now is paid <br />
                         Thank you for trusting us.
                     </Text>
                     <div className="button-container">
