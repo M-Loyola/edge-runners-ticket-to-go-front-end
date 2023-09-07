@@ -32,11 +32,7 @@ export const MovieList = () => {
   }
   const moviesByLocation = useSelector((state) => state.ticket.cinemaMovieList);
   return (
-<<<<<<< HEAD
-    <div >
-=======
     <div>
->>>>>>> 054abcff5f1835f9edb63075b44ffa5b4a999446
       <div className="movieList-container">
         <h1 className="movieList-title">
           NOW SHOWING!
