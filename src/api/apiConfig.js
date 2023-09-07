@@ -8,4 +8,7 @@ export const getMoviesInCinema = () => {
 };
 export const getMovieDetailsInCinema = (cinemaMovieId) => {
   return api.get(`/movies/${cinemaMovieId}/reservationDetails`);
-}
+};
+export const signIn = (emailAndPassword) => {
+  return api.post("/users/login", emailAndPassword);
+};
