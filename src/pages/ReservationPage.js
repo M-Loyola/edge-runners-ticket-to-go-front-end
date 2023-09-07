@@ -72,9 +72,6 @@ const ReservationPage = () => {
           className="title-reservation"
           title="RESERVATION"
           bordered={false}
-          style={{
-            width: 300,
-          }}
         >
           {reservationDetails.map((details) => {
             const quantity = selectedSeats.length;
@@ -90,29 +87,29 @@ const ReservationPage = () => {
                 </Row>
                 <br />
                 <div className="movie-details-container">
-                  <Row>
-                    <Col>Movie Title: </Col>
-                    <Col>{details.title}</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Movie Title: </Col>
+                    <Col span={16} className="content-col">{details.title}</Col>
                   </Row>
-                  <Row>
-                    <Col>Cinema Name: </Col>
-                    <Col>{details.cinemaName}</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Cinema Name: </Col>
+                    <Col span={16} className="content-col">{details.cinemaName}</Col>
                   </Row>
-                  <Row>
-                    <Col>Location: </Col>
-                    <Col>{details.location}</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Location: </Col>
+                    <Col span={16} className="content-col">{details.location}</Col>
                   </Row>
-                  <Row>
-                    <Col>Schedule: </Col>
-                    <Col>{details.schedule}</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Schedule: </Col>
+                    <Col span={16} className="content-col">{details.schedule}</Col>
                   </Row>
-                  <Row>
-                    <Col>Online Payment: </Col>
-                    <Col> &nbsp;GCash</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Online Payment: </Col>
+                    <Col span={16} className="content-col"> &nbsp;GCash</Col>
                   </Row>
-                  <Row>
-                    <Col>Payment Number: </Col>
-                    <Col>{userInfo.mobile_number}</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Payment Number: </Col>
+                    <Col span={16} className="content-col">{userInfo.mobile_number}</Col>
                   </Row>
                   <button
                     className="open-cinema-seating"
@@ -120,21 +117,21 @@ const ReservationPage = () => {
                   >
                     Open Cinema Seating
                   </button>
-                  <Row>
-                    <Col>Selected Seats: </Col>
-                    <Col>{selectedSeats.join(", ")}</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Selected Seats: </Col>
+                    <Col span={16} className="content-col">{selectedSeats.join(", ")}</Col>
                   </Row>
-                  <Row>
-                    <Col>Quantity: </Col>
-                    <Col>{quantity}</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Quantity: </Col>
+                    <Col span={16} className="content-col">{quantity}</Col>
                   </Row>
-                  <Row>
-                    <Col>Ticket Price: </Col>
-                    <Col>{details.price}</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Ticket Price: </Col>
+                    <Col span={16} className="content-col">{details.price}</Col>
                   </Row>
-                  <Row>
-                    <Col>Total Price: </Col>
-                    <Col>{totalPrice}</Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={8} className="label-col">Total Price: </Col>
+                    <Col span={16} className="content-col">{totalPrice}</Col>
                   </Row>
                 </div>
                 <CinemaSeatingModal
@@ -153,7 +150,7 @@ const ReservationPage = () => {
             Reserve now!
           </button>
           <button className="button">Pay now!</button>
-          <button className="back-button" onClick={handleBack}>
+          <br/><button className="back-button" onClick={handleBack}>
             Back
           </button>
         </Card>
