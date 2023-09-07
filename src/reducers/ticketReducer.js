@@ -26,10 +26,10 @@ const ticketReducer = createSlice({
     },
     setCurrentDateTime: (state, action) => {
       state.currentDateTime = action.payload;
-      },
+    },
     setSearchInput: (state, action) => {
-      state.searchInput = action.payload
-    }
+      state.searchInput = action.payload;
+    },
     setLoggedInUser: (state, action) => {
       state.user = action.payload;
     },
@@ -46,7 +46,7 @@ export const {
   setSelectedMovie,
   setLoggedInUser,
   loggedOutUser,
-  setSearchInput, 
-  setCurrentDateTime 
+  setSearchInput,
+  setCurrentDateTime,
 } = ticketReducer.actions;
 export default ticketReducer.reducer;

@@ -6,15 +6,16 @@ import LandingDropdown from "./LandingDropdown";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieDetailsInCinema, getMoviesInCinema } from "../api/apiConfig";
-import { resetCinemaMovieList, setSearchInput, setSelectedMovie } from "../reducers/ticketReducer";
+import {
   resetCinemaMovieList,
+  setSearchInput,
   setSelectedMovie,
 } from "../reducers/ticketReducer";
 
 export const MovieList = () => {
   const [locationValue, setLocationValue] = useState("Manila");
   const dispatch = useDispatch();
-  const selectorSearchInput = useSelector(state => state.ticket.searchInput);
+  const selectorSearchInput = useSelector((state) => state.ticket.searchInput);
   let hasMatch = false;
 
   const handleLocationChange = (location) => {
@@ -57,7 +58,10 @@ export const MovieList = () => {
                   hasMatch = true;
                   return (
                     <Col key={movie.id} xs={4} lg={4}>
-                  <NavLink onClick={() => handleClickMovie(movie)} to={path}>
+                      <NavLink
+                        onClick={() => handleClickMovie(movie)}
+                        to={path}
+                      >
                         <div className="movieList-holder">
                           <img src={movie.image} alt={movie.title} />
                           <p>{movie.title}</p>
@@ -65,11 +69,13 @@ export const MovieList = () => {
                         </div>
                       </NavLink>
                     </Col>
-                  ) 
+                  );
                 }
               })
           )}
-          {!hasMatch && (<div style={{textAlign: 'center'}}>No movies matched</div>)}
+        {!hasMatch && (
+          <div style={{ textAlign: "center" }}>No movies matched</div>
+        )}
       </Row>
     </div>
   );
