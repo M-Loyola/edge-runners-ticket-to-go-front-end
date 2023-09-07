@@ -1,25 +1,28 @@
-import { useState } from 'react';
-import { Alert, Row, Col, Input, Button, Form } from 'antd';
+import { useState } from "react";
+import { Alert, Row, Col, Input, Button, Form } from "antd";
 import "../assets/styles/AccountPage.css";
-import { color } from 'framer-motion';
+import { signUp } from "../api/apiConfig";
+import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    gcashNumber: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    mobile_number: "",
   });
-  
+
   const [showEmptyFieldAlert, setShowEmptyFieldAlert] = useState(false);
   const [showEmailAlert, setShowEmailAlert] = useState(false);
   const [showGcashNumberValid, setshowGcashNumberValid] = useState(false);
-  const [showFirstNameSpacesAlert, setShowFirstNameSpacesAlert] = useState(false);
+  const [showFirstNameSpacesAlert, setShowFirstNameSpacesAlert] =
+    useState(false);
   const [showLastNameSpacesAlert, setShowLastNameSpacesAlert] = useState(false);
   const [showEmailSpacesAlert, setShowEmailSpacesAlert] = useState(false);
   const [showPasswordSpacesAlert, setShowPasswordSpacesAlert] = useState(false);
-  const [showGcashNumberSpacesAlert, setShowGcashNumberSpacesAlert] = useState(false);
+  const [showGcashNumberSpacesAlert, setShowGcashNumberSpacesAlert] =
+    useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,47 +30,64 @@ export const SignUp = () => {
     const trimmedValue = value.trim();
 
     const spacesAlert = {
-        firstName: setShowFirstNameSpacesAlert,
-        lastName: setShowLastNameSpacesAlert,
-        email: setShowEmailSpacesAlert,
-        passowd: setShowPasswordSpacesAlert,
-        gcashNumber: setShowGcashNumberSpacesAlert
+      firstName: setShowFirstNameSpacesAlert,
+      lastName: setShowLastNameSpacesAlert,
+      email: setShowEmailSpacesAlert,
+      passowd: setShowPasswordSpacesAlert,
+      mobile_number: setShowGcashNumberSpacesAlert,
     };
 
     if (spacesAlert[name]) {
-        spacesAlert[name](value !== trimmedValue);
+      spacesAlert[name](value !== trimmedValue);
     }
 
-      if (name === 'email') {
-        const isValidEmail = value.includes('@') && value.includes('.com');
-        setShowEmailAlert(!isValidEmail);
-      }
+    if (name === "email") {
+      const isValidEmail = value.includes("@") && value.includes(".com");
+      setShowEmailAlert(!isValidEmail);
+    }
 
-      if (name === 'gcashNumber' ){
-        const isValidGcashNumber = /^\d{11}$/.test(value) && value.startsWith('09');
-        setshowGcashNumberValid(!isValidGcashNumber);
-      }
+    if (name === "mobile_number") {
+      const isValidGcashNumber =
+        /^\d{11}$/.test(value) && value.startsWith("09");
+      setshowGcashNumberValid(!isValidGcashNumber);
+    }
   };
+  const navigate = useNavigate();
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-const hasAlerts = showFirstNameSpacesAlert || showLastNameSpacesAlert || showEmailSpacesAlert || showPasswordSpacesAlert 
-                || showGcashNumberSpacesAlert || showEmptyFieldAlert || showEmailAlert;
-  const isEmpty = Object.values(formData).some(value => value === '');
+    const hasAlerts =
+      showFirstNameSpacesAlert ||
+      showLastNameSpacesAlert ||
+      showEmailSpacesAlert ||
+      showPasswordSpacesAlert ||
+      showGcashNumberSpacesAlert ||
+      showEmptyFieldAlert ||
+      showEmailAlert;
+    const isEmpty = Object.values(formData).some((value) => value === "");
 
-  if (hasAlerts) {
-    alert('Please fix the form errors before submitting.');
-        if (!isEmpty) {
-            setShowEmptyFieldAlert(false);
-            alert('Form submitted successfully');
-        }
-  } else if (isEmpty) {
-        setShowEmptyFieldAlert(true);
-    } else {
+    if (hasAlerts) {
+      alert("Please fix the form errors before submitting.");
+      if (!isEmpty) {
         setShowEmptyFieldAlert(false);
-        alert('Form submitted successfully');
+        alert("Form submitted successfully");
       }
-};
+    } else if (isEmpty) {
+      setShowEmptyFieldAlert(true);
+    } else {
+      setShowEmptyFieldAlert(false);
+      await signUp(formData)
+        .then(() => {
+          navigate("/");
+          alert("Signed Up successfully");
+        })
+        .catch(() => {
+          alert(
+            "Cannot sign up, Please check of you have an existing account using the email and mobile number."
+          );
+        });
+    }
+  };
 
   return (
     <Form onSubmit={handleFormSubmit}>
@@ -81,16 +101,20 @@ const hasAlerts = showFirstNameSpacesAlert || showLastNameSpacesAlert || showEma
               value={formData.firstName}
               onChange={handleInputChange}
             />
-            { showFirstNameSpacesAlert && (
-                <Alert message="Please remove extra spaces" type="error" showIcon />
+            {showFirstNameSpacesAlert && (
+              <Alert
+                message="Please remove extra spaces"
+                type="error"
+                showIcon
+              />
             )}
           </Form.Item>
         </Col>
-        </Row>
+      </Row>
 
-        <Row>
+      <Row>
         <Col span={35}>
-        <Form.Item label="Last Name">
+          <Form.Item label="Last Name">
             <Input
               type="text"
               name="lastName"
@@ -98,8 +122,12 @@ const hasAlerts = showFirstNameSpacesAlert || showLastNameSpacesAlert || showEma
               value={formData.lastName}
               onChange={handleInputChange}
             />
-            { showLastNameSpacesAlert && (
-                <Alert message="Please remove extra spaces" type="error" showIcon />
+            {showLastNameSpacesAlert && (
+              <Alert
+                message="Please remove extra spaces"
+                type="error"
+                showIcon
+              />
             )}
           </Form.Item>
         </Col>
@@ -107,7 +135,7 @@ const hasAlerts = showFirstNameSpacesAlert || showLastNameSpacesAlert || showEma
 
       <Row>
         <Col span={100}>
-        <Form.Item label="Email Address">
+          <Form.Item label="Email Address">
             <Input
               type="text"
               name="email"
@@ -115,11 +143,15 @@ const hasAlerts = showFirstNameSpacesAlert || showLastNameSpacesAlert || showEma
               value={formData.email}
               onChange={handleInputChange}
             />
-            { showEmailSpacesAlert && (
-                <Alert message="Please remove extra spaces" type="error" showIcon />
+            {showEmailSpacesAlert && (
+              <Alert
+                message="Please remove extra spaces"
+                type="error"
+                showIcon
+              />
             )}
             {showEmailAlert && (
-                <Alert message="Invalid email domain!" type="error" showIcon />
+              <Alert message="Invalid email domain!" type="error" showIcon />
             )}
           </Form.Item>
         </Col>
@@ -127,16 +159,20 @@ const hasAlerts = showFirstNameSpacesAlert || showLastNameSpacesAlert || showEma
 
       <Row>
         <Col span={80}>
-        <Form.Item label="Password">
+          <Form.Item label="Password">
             <Input
-              type="text"
+              type="password"
               name="password"
               placeholder="ex. iluvj3lly4c3"
               value={formData.password}
               onChange={handleInputChange}
             />
-            { showPasswordSpacesAlert && (
-                <Alert message="Please remove extra spaces" type="error" showIcon />
+            {showPasswordSpacesAlert && (
+              <Alert
+                message="Please remove extra spaces"
+                type="error"
+                showIcon
+              />
             )}
           </Form.Item>
         </Col>
@@ -144,26 +180,41 @@ const hasAlerts = showFirstNameSpacesAlert || showLastNameSpacesAlert || showEma
 
       <Row>
         <Col span={40}>
-        <Form.Item label="Gcash Number">
+          <Form.Item label="Gcash Number">
             <Input
               type="text"
-              name="gcashNumber"
+              name="mobile_number"
               placeholder="09999999999"
-              value={formData.gcashNumber}
+              value={formData.mobile_number}
               onChange={handleInputChange}
             />
-            { showGcashNumberSpacesAlert && (
-                <Alert message="Please remove extra spaces" type="error" showIcon />
+            {showGcashNumberSpacesAlert && (
+              <Alert
+                message="Please remove extra spaces"
+                type="error"
+                showIcon
+              />
             )}
-            { showGcashNumberValid && (
-                <Alert message="Please use valid Gcash Number" type="error" showIcon />
+            {showGcashNumberValid && (
+              <Alert
+                message="Please use valid Gcash Number"
+                type="error"
+                showIcon
+              />
             )}
           </Form.Item>
         </Col>
       </Row>
-      <Button type="submit" className='submit-button' onClick={handleFormSubmit} style={{backgroundColor:"black", color:"#D2DE32"}}>Submit</Button> 
+      <Button
+        type="submit"
+        className="submit-button"
+        onClick={handleFormSubmit}
+        style={{ backgroundColor: "black", color: "#D2DE32" }}
+      >
+        Submit
+      </Button>
       {showEmptyFieldAlert && (
-        <Alert message= "Please fill all the fields." type='error' showIcon />
+        <Alert message="Please fill all the fields." type="error" showIcon />
       )}
     </Form>
   );

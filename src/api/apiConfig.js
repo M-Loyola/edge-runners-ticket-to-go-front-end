@@ -12,3 +12,6 @@ export const getMovieDetailsInCinema = (cinemaMovieId) => {
 export const signIn = (emailAndPassword) => {
   return api.post("/users/login", emailAndPassword);
 };
+export const signUp = (user) => {
+  return api.post("/users/createUser", user);
+};
