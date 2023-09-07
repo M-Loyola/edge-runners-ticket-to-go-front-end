@@ -36,6 +36,7 @@ export const ReservationStatus = () => {
                             Location: {reservation.location}<br />
                             Schedule: {moment(reservation.schedule).format("MMMM DD, YYYY on h:mm A")}<br />
                             Status: {reservation.isPayed ? "Paid" : "Reserved"}<br />
+                            Reserved Seats: {reservation.reservedSeats}<br />
                             <div className="button-container">
                                 <NavLink><br />
                                     <Button disabled={reservation.isPayed ? true : false} onClick={() => onPayNowHandler(reservation.orderNumber)}>
