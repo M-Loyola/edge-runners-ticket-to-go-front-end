@@ -15,7 +15,8 @@ const ticketReducer = createSlice({
       lastName: "Ex-edgeRunners",
       email: "exedgerunners@ita.com",
       phoneNumber: "09987654321"
-    }
+    },
+    searchInput: "",
   },
   reducers: {
     resetMovieList: (state, action) => {
@@ -32,10 +33,13 @@ const ticketReducer = createSlice({
     },
     setCurrentDateTime: (state, action) => {
       state.currentDateTime = action.payload;
+      },
+    setSearchInput: (state, action) => {
+      state.searchInput = action.payload
     }
   },
 });
 
-export const { resetMovieList, resetCinemaMovieList, resetCinemaList, setSelectedMovie, setCurrentDateTime } =
+export const { resetMovieList, resetCinemaMovieList, resetCinemaList, setSelectedMovie, setSearchInput, setCurrentDateTime } =
   ticketReducer.actions;
 export default ticketReducer.reducer;
