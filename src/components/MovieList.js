@@ -19,7 +19,8 @@ export const MovieList = () => {
   };
   useEffect(() => {
     intializeMovieByLocation();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
   const intializeMovieByLocation = async () => {
     const moviesByCinema = await getMoviesInCinema();
     dispatch(resetCinemaMovieList(moviesByCinema.data));

@@ -37,7 +37,8 @@ export const NextWeekRelease = () => {
     return () => {
       setIsMount(false);
     };
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   function stuff() {
     ref.current?.goNext();
