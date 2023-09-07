@@ -1,10 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Routes } from "react-router-dom";
 import "./App.css";
 import MenuNav from "./components/MenuNav";
 import { getMovies } from "./api/apiConfig";
 import { useDispatch } from "react-redux";
 import { resetMovieList } from "./reducers/ticketReducer";
 import { useEffect } from "react";
+import { AccountPage } from "./pages/AccountPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const App = () => {
   return (
     <>
       <MenuNav />
+      <Routes path="/accountPage" element={<AccountPage />}/>
       <Outlet />
     </>
   );

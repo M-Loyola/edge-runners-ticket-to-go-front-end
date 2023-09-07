@@ -1,0 +1,92 @@
+
+
+/* .banner-text-login{
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 15px;
+} */
+
+.banner-text-login {
+    text-align: center;
+    font-size: 20px;
+  }
+  
+  .tabs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-color: #f0f0f0; 
+  }
+  
+  .tabs-switch {
+    width: 400px; 
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ant-tabs-tabpane {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ant-tabs-tabpane form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .ant-tabs-tabpane input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .ant-tabs-tabpane button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .back-button{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+  .fullname-container{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .contactnumber-container{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .emailaddress-container{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+

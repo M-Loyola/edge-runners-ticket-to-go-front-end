@@ -1,7 +1,7 @@
 import { EyeOutlined, HomeFilled } from "@ant-design/icons";
 import { Menu } from "antd";
 import Search from "antd/es/input/Search";
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, Link } from 'react-router-dom';
 import { ReactComponent as AccountIcon } from "../assets/icons/account.svg";
 import "../assets/styles/MenuNav.css";
 
@@ -48,7 +48,9 @@ const MenuNav = () => {
                     size="large"
                     onSearch={onSearch}
                 />
-                <AccountIcon className="account-icon" />
+                <Link to="/accountPage" className="account-link">
+                    <AccountIcon className="account-icon" />
+                </Link>
             </div>
         </div>
     );

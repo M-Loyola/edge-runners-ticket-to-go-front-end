@@ -11,6 +11,8 @@ import { Home } from './pages/Home';
 import ReservationPage from './pages/ReservationPage';
 import ViewReservationPage from './pages/ViewReservationPage';
 import reportWebVitals from './reportWebVitals';
+import { AccountPage } from './pages/AccountPage';
+import { UserAccount } from './components/UserAccount';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -43,6 +45,16 @@ const router = createBrowserRouter([
         path: "/confirmationpage2",
         index: true,
         element: < ReserveConfirmPageTwo/>
+      },
+      {
+        path: "/accountPage",
+        index: false,
+        element: < AccountPage/>
+      },
+      {
+        path: "/UserAccount",
+        index: false,
+        element: < UserAccount/>
       }
     ]
   }
