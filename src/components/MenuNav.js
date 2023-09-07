@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { AutoComplete, Input, Menu } from "antd";
 import { EyeOutlined, HomeFilled } from "@ant-design/icons";
-import { NavLink, useLocation, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { AutoComplete, Input, Menu } from "antd";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { ReactComponent as AccountIcon } from "../assets/icons/account.svg";
 import { ReactComponent as LoggedInAccountIcon } from "../assets/icons/logged-in-account.svg";
 import "../assets/styles/MenuNav.css";
@@ -46,25 +46,20 @@ const MenuNav = () => {
   const currentPath = location.pathname;
   const [searchValue, setSearchValue] = useState("");
   const [autocompleteSuggestions, setAutocompleteSuggestions] = useState([]);
+  const cinemaList = useSelector((state) => state.ticket.cinemaMovieList)
+
+  const movieTitleList = [].concat(
+    ...cinemaList.map((cinema) =>
+      cinema.movieList.map((movie) => ({ id: movie.id, title: movie.title }))
+    )
+  );
 
   const handleSearchChange = (value) => {
     setSearchValue(value);
-
-    // Example: Fetch autocomplete suggestions from an API
-    // Replace this with your own data source logic
-    // For now, let's assume you have an array of suggestions
-    const suggestions = [
-      "spider man",
-      "spider man",
-      "John Wick",
-      // Add more suggestions here
-    ];
-
-    // Filter suggestions based on the current search value
+    const suggestions = movieTitleList.map(movie => movie.title);
     const filteredSuggestions = suggestions.filter((item) =>
       item.toLowerCase().includes(value.toLowerCase())
     );
-
     setAutocompleteSuggestions(filteredSuggestions);
   };
 
@@ -100,7 +95,7 @@ const MenuNav = () => {
           size="large"
           value={searchValue}
           onChange={handleSearchChange}
-          dataSource={autocompleteSuggestions.map((item) => ({ value: item }))}
+          options={autocompleteSuggestions.map((item) => ({ value: item }))}
         >
           <Input
             suffix={
