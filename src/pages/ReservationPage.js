@@ -16,7 +16,6 @@ const ReservationPage = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedSeats, setSectedSeats] = useState([]);
   const navigate = useNavigate();
-  const [totalPrice, setTotalPrice] = useState(0);
   const handleOpenModal = () => {
     setIsModalVisible(true);
   };
