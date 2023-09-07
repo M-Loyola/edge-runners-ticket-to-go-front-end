@@ -10,8 +10,8 @@ import { resetCinemaMovieList, setSelectedMovie } from "../reducers/ticketReduce
 
 export const MovieList = () => {
   const [locationValue, setLocationValue] = useState("Manila");
-
   const dispatch = useDispatch();
+  const selectorSearchInput = useSelector(state => state.ticket.searchInput);
 
   const handleLocationChange = (location) => {
     setLocationValue(location.value);
@@ -45,7 +45,8 @@ export const MovieList = () => {
           .filter((cinema) => cinema.location === locationValue)
           .map((selectedCinema) =>
             selectedCinema.movieList
-              .filter((movie) => movie.isShowing)
+              .filter((movie) => movie.isShowing) 
+              .filter((movie) => selectorSearchInput != null && movie.title.includes(selectorSearchInput))
               .map((movie) => (
                 <Col key={movie.id} xs={4} lg={4}>
                   <NavLink onClick={() => handleClickMovie(movie)} to="/reservation">

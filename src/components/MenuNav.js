@@ -1,9 +1,11 @@
 import { EyeOutlined, HomeFilled } from "@ant-design/icons";
 import { Menu } from "antd";
 import Search from "antd/es/input/Search";
+import { useDispatch } from "react-redux";
 import { NavLink, useLocation } from 'react-router-dom';
 import { ReactComponent as AccountIcon } from "../assets/icons/account.svg";
 import "../assets/styles/MenuNav.css";
+import { setSearchInput } from "../reducers/ticketReducer";
 
 const menuItems = [
     {
@@ -20,9 +22,12 @@ const menuItems = [
     },
 ];
 const MenuNav = () => {
+    const dispatch = useDispatch();
     const location = useLocation();
     const currentPath = location.pathname;
-    const onSearch = (value) => console.log(value);
+    const onSearch = (value) => {
+        dispatch(setSearchInput(value));
+    };
     return (
         <div className="header-container">
             <div className="menu-container">
