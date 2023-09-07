@@ -24,7 +24,7 @@ export const ReserveConfirmPageOne = () => {
             }
         }, 1000);
         return () => clearTimeout(delay);
-    }, [countdown]);
+    }, [countdown, navigate]);
     return (
         <div className="reserve-container" >
             <Row gutter={[0, 16]}>
