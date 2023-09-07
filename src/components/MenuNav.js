@@ -1,6 +1,7 @@
 import { EyeOutlined, HomeFilled } from "@ant-design/icons";
 import { Menu } from "antd";
 import Search from "antd/es/input/Search";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, useLocation } from 'react-router-dom';
 import { ReactComponent as AccountIcon } from "../assets/icons/account.svg";
@@ -25,8 +26,15 @@ const MenuNav = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const currentPath = location.pathname;
-    const onSearch = (value) => {
-        dispatch(setSearchInput(value));
+    const [searchValue, setSearchValue] = useState("");
+
+    const handleSearchChange = (e) => {
+        setSearchValue(e.target.value);
+    };
+
+    const onSearch = () => {
+        dispatch(setSearchInput(searchValue));
+        setSearchValue("");
     };
     return (
         <div className="header-container">
@@ -51,6 +59,8 @@ const MenuNav = () => {
                         <button className="custom-search-button">Search</button>
                     }
                     size="large"
+                    value={searchValue}
+                    onChange={handleSearchChange}
                     onSearch={onSearch}
                 />
                 <AccountIcon className="account-icon" />

@@ -6,7 +6,7 @@ import LandingDropdown from "./LandingDropdown";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieDetailsInCinema, getMoviesInCinema } from "../api/apiConfig";
-import { resetCinemaMovieList, setSelectedMovie } from "../reducers/ticketReducer";
+import { resetCinemaMovieList, setSearchInput, setSelectedMovie } from "../reducers/ticketReducer";
 
 export const MovieList = () => {
   const [locationValue, setLocationValue] = useState("Manila");
@@ -15,6 +15,7 @@ export const MovieList = () => {
 
   const handleLocationChange = (location) => {
     setLocationValue(location.value);
+    dispatch(setSearchInput(""));
   };
   useEffect(() => {
     intializeMovieByLocation();
