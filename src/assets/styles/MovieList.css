@@ -76,3 +76,8 @@ p {
         font-size: 15px;
     }
 }
+
+.movieList-rowOne {
+    display: flex !important;
+    justify-content: center;
+}

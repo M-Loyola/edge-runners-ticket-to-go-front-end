@@ -33,7 +33,7 @@ const MenuNav = () => {
     };
 
     const onSearch = () => {
-        dispatch(setSearchInput(searchValue));
+        dispatch(setSearchInput(searchValue.trim()));
         setSearchValue("");
     };
     return (
