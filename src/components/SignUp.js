@@ -1,9 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
-import { Row, Col, Input, Button, Form, Typography } from 'antd'; // Import Ant Design components
+import { useState } from 'react';
+import { Alert, Row, Col, Input, Button, Form } from 'antd';
 import "../assets/styles/AccountPage.css";
-
-const { Text } = Typography;
 
 export const SignUp = () => {
   const navigate = useNavigate();
@@ -14,14 +12,15 @@ export const SignUp = () => {
     password: '',
     gcashNumber: '',
   });
-
-  const [formErrors, setFormErrors] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    gcashNumber: '',
-  });
+  
+  const [showEmptyFieldAlert, setShowEmptyFieldAlert] = useState(false);
+  const [showEmailAlert, setShowEmailAlert] = useState(false);
+  const [showGcashNumberValid, setshowGcashNumberValid] = useState(false);
+  const [showFirstNameSpacesAlert, setShowFirstNameSpacesAlert] = useState(false);
+  const [showLastNameSpacesAlert, setShowLastNameSpacesAlert] = useState(false);
+  const [showEmailSpacesAlert, setShowEmailSpacesAlert] = useState(false);
+  const [showPasswordSpacesAlert, setShowPasswordSpacesAlert] = useState(false);
+  const [showGcashNumberSpacesAlert, setShowGcashNumberSpacesAlert] = useState(false);
 
   const handleBack = () => {
     navigate('/');
@@ -30,51 +29,71 @@ export const SignUp = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  };
+    const trimmedValue = value.trim();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const errors = {};
-    if (!formData.firstName) {
-      errors.firstName = 'First Name is required';
-    }
-    if (!formData.lastName) {
-      errors.lastName = 'Last Name is required';
-    }
-    if (!formData.email) {
-      errors.email = 'Email is required';
-    } else {
-        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-        if (!emailRegex.test(formData.email)) {
-          errors.email = 'Invalid Email Address';
-        } else {
-          const validDomains = ['example.com', 'yourdomain.com'];
-          const domain = formData.email.split('@')[1];
-          if (!validDomains.includes(domain)) {
-            errors.email = 'Invalid Email Domain';
-          }
+    if (value !== trimmedValue) {
+        if (name === 'firstName') {
+          setShowFirstNameSpacesAlert(true);
+        } else if (name === 'lastName') {
+          setShowLastNameSpacesAlert(true);
+        } else if (name === 'email') {
+          setShowEmailSpacesAlert(true);
+        } else if (name === 'password') {
+          setShowPasswordSpacesAlert(true);
+        } else if (name === 'gcashNumber') {
+          setShowGcashNumberSpacesAlert(true);
         }
-    }
-    if (!formData.password) {
-      errors.password = 'Password is required';
-    }
-    if (!formData.gcashNumber) {
-      errors.gcashNumber = 'GCASH Number is required';
-    }
+      } else {
+        if (name === 'firstName') {
+          setShowFirstNameSpacesAlert(false);
+        } else if (name === 'lastName') {
+          setShowLastNameSpacesAlert(false);
+        } else if (name === 'email') {
+          setShowEmailSpacesAlert(false);
+        } else if (name === 'password') {
+          setShowPasswordSpacesAlert(false);
+        } else if (name === 'gcashNumber') {
+          setShowGcashNumberSpacesAlert(false);
+        }
+      }
 
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-    } else {
-      alert('Form submitted successfully');
-    }
+      if (name === 'email') {
+        const isValidEmail = value.includes('@') && value.includes('.com');
+        setShowEmailAlert(!isValidEmail);
+      }
+
+      if (name == 'gcashNumber' ){
+        const isValidGcashNumber = /^\d{11}$/.test(value) && value.startsWith('0');
+        setshowGcashNumberValid(!isValidGcashNumber);
+      }
   };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+const hasAlerts = showFirstNameSpacesAlert || showLastNameSpacesAlert || showEmailSpacesAlert || showPasswordSpacesAlert 
+                || showGcashNumberSpacesAlert || showEmptyFieldAlert || showEmailAlert;
+  const isEmpty = Object.values(formData).some(value => value === '');
+
+  if (hasAlerts) {
+    alert('Please fix the form errors before submitting.');
+        if (!isEmpty) {
+            setShowEmptyFieldAlert(false);
+            alert('Form submitted successfully');
+        }
+  } else if (isEmpty) {
+        setShowEmptyFieldAlert(true);
+    } else {
+        setShowEmptyFieldAlert(false);
+        alert('Form submitted successfully');
+      }
+};
+
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Row gutter={[30, 30]}>
+    <Form onSubmit={handleFormSubmit}>
+      <Row gutter={[40, 40]}>
         <Col span={30}>
-          <Form.Item label="First Name" validateStatus={formErrors.firstName ? 'error' : ''}>
+          <Form.Item label="First Name">
             <Input
               type="text"
               name="firstName"
@@ -82,8 +101,8 @@ export const SignUp = () => {
               value={formData.firstName}
               onChange={handleInputChange}
             />
-            {formErrors.firstName && (
-              <Text type="danger">{formErrors.firstName}</Text>
+            { showFirstNameSpacesAlert && (
+                <Alert message="Please remove extra spaces" type="error" showIcon />
             )}
           </Form.Item>
         </Col>
@@ -91,7 +110,7 @@ export const SignUp = () => {
 
         <Row>
         <Col span={35}>
-        <Form.Item label="Last Name" validateStatus={formErrors.lastName ? 'error' : ''}>
+        <Form.Item label="Last Name">
             <Input
               type="text"
               name="lastName"
@@ -99,16 +118,16 @@ export const SignUp = () => {
               value={formData.lastName}
               onChange={handleInputChange}
             />
-            {formErrors.lastName && (
-              <Text type="danger">{formErrors.lastName}</Text>
+            { showLastNameSpacesAlert && (
+                <Alert message="Please remove extra spaces" type="error" showIcon />
             )}
           </Form.Item>
         </Col>
       </Row>
 
       <Row>
-        <Col span={60}>
-        <Form.Item label="Email Address" validateStatus={formErrors.email ? 'error' : ''}>
+        <Col span={100}>
+        <Form.Item label="Email Address">
             <Input
               type="text"
               name="email"
@@ -116,16 +135,19 @@ export const SignUp = () => {
               value={formData.email}
               onChange={handleInputChange}
             />
-            {formErrors.email && (
-              <Text type="danger">{formErrors.email}</Text>
+            { showEmailSpacesAlert && (
+                <Alert message="Please remove extra spaces" type="error" showIcon />
+            )}
+            {showEmailAlert && (
+                <Alert message="Invalid email domain!" type="error" showIcon />
             )}
           </Form.Item>
         </Col>
       </Row>
 
       <Row>
-        <Col span={60}>
-        <Form.Item label="Password" validateStatus={formErrors.password ? 'error' : ''}>
+        <Col span={80}>
+        <Form.Item label="Password">
             <Input
               type="text"
               name="password"
@@ -133,8 +155,8 @@ export const SignUp = () => {
               value={formData.password}
               onChange={handleInputChange}
             />
-            {formErrors.password && (
-              <Text type="danger">{formErrors.password}</Text>
+            { showPasswordSpacesAlert && (
+                <Alert message="Please remove extra spaces" type="error" showIcon />
             )}
           </Form.Item>
         </Col>
@@ -142,22 +164,28 @@ export const SignUp = () => {
 
       <Row>
         <Col span={40}>
-        <Form.Item label="Gcash Number" validateStatus={formErrors.gcashNumber ? 'error' : ''}>
+        <Form.Item label="Gcash Number">
             <Input
               type="text"
-              name="gcashnumber"
+              name="gcashNumber"
               placeholder="09999999999"
               value={formData.gcashNumber}
               onChange={handleInputChange}
             />
-            {formErrors.gcashNumber && (
-              <Text type="danger">{formErrors.gcashNumber}</Text>
+            { showGcashNumberSpacesAlert && (
+                <Alert message="Please remove extra spaces" type="error" showIcon />
+            )}
+            { showGcashNumberValid && (
+                <Alert message="Please use valid Gcash Number" type="error" showIcon />
             )}
           </Form.Item>
         </Col>
       </Row>
-      <Button type="submit">Submit</Button>
+      <Button type="submit" className='submit-button' onClick={handleFormSubmit}>Submit</Button> 
       <Button type="back" onClick={handleBack}>Back</Button>
+      {showEmptyFieldAlert && (
+        <Alert message= "Please fill all the fields." type='error' showIcon />
+      )}
     </Form>
   );
 };
