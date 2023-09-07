@@ -82,7 +82,7 @@ const ReservationPage = () => {
               <div key={details.key}>
                 <Row>
                   <Col>
-                    <img src={details.image} alt={details.image} />
+                    <img src={details.image} alt={details.image} style={{ width: '500px', height: '500px'}}/>
                   </Col>
                 </Row>
                 <br />
