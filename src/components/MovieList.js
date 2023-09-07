@@ -1,20 +1,21 @@
 import { Col, Row } from "antd";
 import { useEffect, useState } from "react";
-import { NavLink, Navigate as navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../assets/styles/MovieList.css";
 import LandingDropdown from "./LandingDropdown";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieDetailsInCinema, getMoviesInCinema } from "../api/apiConfig";
-import { resetCinemaMovieList, setSelectedMovie } from "../reducers/ticketReducer";
+import { resetCinemaMovieList, setSearchInput, setSelectedMovie } from "../reducers/ticketReducer";
 
 export const MovieList = () => {
   const [locationValue, setLocationValue] = useState("Manila");
-
   const dispatch = useDispatch();
+  const selectorSearchInput = useSelector(state => state.ticket.searchInput);
 
   const handleLocationChange = (location) => {
     setLocationValue(location.value);
+    dispatch(setSearchInput(""));
   };
   useEffect(() => {
     intializeMovieByLocation();
@@ -31,7 +32,11 @@ export const MovieList = () => {
   }
   const moviesByLocation = useSelector((state) => state.ticket.cinemaMovieList);
   return (
+<<<<<<< HEAD
     <div >
+=======
+    <div>
+>>>>>>> 054abcff5f1835f9edb63075b44ffa5b4a999446
       <div className="movieList-container">
         <h1 className="movieList-title">
           NOW SHOWING!
@@ -45,7 +50,8 @@ export const MovieList = () => {
           .filter((cinema) => cinema.location === locationValue)
           .map((selectedCinema) =>
             selectedCinema.movieList
-              .filter((movie) => movie.isShowing)
+              .filter((movie) => movie.isShowing) 
+              .filter((movie) => selectorSearchInput != null && movie.title.includes(selectorSearchInput))
               .map((movie) => (
                 <Col key={movie.id} xs={4} lg={4}>
                   <NavLink onClick={() => handleClickMovie(movie)} to="/reservation">

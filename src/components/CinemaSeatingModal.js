@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
 import { Modal } from 'antd';
-import '../assets/styles/CinemaSeatingModal.css';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import '../assets/styles/CinemaSeatingModal.css';
 
 const rows = ['A', 'B', 'C', 'D', 'E'];
 const seatsPerRow = 10;
 
 const CinemaSeatingModal = ({ visible, onCancel, onSelectedSeatsChange }) => {
     const occupiedSeats = useSelector(state => state.ticket.selectedMovie.occupiedSeats);
-    console.log(occupiedSeats);
-    // const [occupiedSeatsArray, setOccupiedSeatsArray] = useState([]);
     const occupiedSeatsArray = occupiedSeats?.split(',');
     const [selectedSeats, setSelectedSeats] = useState([]);
     const handleSeatClick = (row, seatNumber) => {
