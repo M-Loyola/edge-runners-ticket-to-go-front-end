@@ -12,6 +12,7 @@ export const MovieList = () => {
   const [locationValue, setLocationValue] = useState("Manila");
   const dispatch = useDispatch();
   const selectorSearchInput = useSelector(state => state.ticket.searchInput);
+  let hasMatch = false;
 
   const handleLocationChange = (location) => {
     setLocationValue(location.value);
@@ -20,14 +21,14 @@ export const MovieList = () => {
   useEffect(() => {
     intializeMovieByLocation();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
+  }, []);
   const intializeMovieByLocation = async () => {
     const moviesByCinema = await getMoviesInCinema();
     dispatch(resetCinemaMovieList(moviesByCinema.data));
   };
   const handleClickMovie = (movie) => {
     getMovieDetailsInCinema(movie.id).then((response) => {
-      const data = {...response.data, image: movie.image};
+      const data = { ...response.data, image: movie.image };
       dispatch(setSelectedMovie(data));
     })
   }
@@ -47,20 +48,25 @@ export const MovieList = () => {
           .filter((cinema) => cinema.location === locationValue)
           .map((selectedCinema) =>
             selectedCinema.movieList
-              .filter((movie) => movie.isShowing) 
-              .filter((movie) => selectorSearchInput != null && movie.title.includes(selectorSearchInput))
-              .map((movie) => (
-                <Col key={movie.id} xs={4} lg={4}>
-                  <NavLink onClick={() => handleClickMovie(movie)} to="/reservation">
-                    <div className="movieList-holder">
-                      <img src={movie.image} alt={movie.title} />
-                      <p>{movie.title}</p>
-                      <p>{selectedCinema.name}</p>
-                    </div>
-                  </NavLink>
-                </Col>
-              ))
+              .filter((movie) => movie.isShowing)
+              .map((movie) => {
+                if (movie.title.includes(selectorSearchInput)) {
+                  hasMatch = true;
+                  return (
+                    <Col key={movie.id} xs={4} lg={4}>
+                      <NavLink onClick={() => handleClickMovie(movie)} to="/reservation">
+                        <div className="movieList-holder">
+                          <img src={movie.image} alt={movie.title} />
+                          <p>{movie.title}</p>
+                          <p>{selectedCinema.name}</p>
+                        </div>
+                      </NavLink>
+                    </Col>
+                  ) 
+                }
+              })
           )}
+          {!hasMatch && (<div style={{textAlign: 'center'}}>No movies matched</div>)}
       </Row>
     </div>
   );
