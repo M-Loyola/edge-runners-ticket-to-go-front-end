@@ -1,9 +1,12 @@
 import { EyeOutlined, HomeFilled } from "@ant-design/icons";
 import { Menu } from "antd";
 import Search from "antd/es/input/Search";
+import { useState } from "react";
 import { NavLink, useLocation, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { ReactComponent as AccountIcon } from "../assets/icons/account.svg";
 import "../assets/styles/MenuNav.css";
+import { setSearchInput } from "../reducers/ticketReducer";
 
 const menuItems = [
   {
@@ -20,10 +23,20 @@ const menuItems = [
   },
 ];
 const MenuNav = () => {
+    const dispatch = useDispatch();
   const signedInData = localStorage.getItem("user");
   const location = useLocation();
   const currentPath = location.pathname;
-  const onSearch = (value) => console.log(value);
+    const [searchValue, setSearchValue] = useState("");
+
+    const handleSearchChange = (e) => {
+        setSearchValue(e.target.value);
+    };
+
+    const onSearch = () => {
+        dispatch(setSearchInput(searchValue.trim()));
+        setSearchValue("");
+    };
   return (
     <div className="header-container">
       <div className="menu-container">
@@ -50,6 +63,8 @@ const MenuNav = () => {
           allowClear
           enterButton={<button className="custom-search-button">Search</button>}
           size="large"
+                    value={searchValue}
+                    onChange={handleSearchChange}
           onSearch={onSearch}
         />
         {signedInData === null ? (

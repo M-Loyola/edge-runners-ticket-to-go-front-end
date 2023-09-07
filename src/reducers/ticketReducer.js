@@ -9,6 +9,7 @@ const ticketReducer = createSlice({
     selectedMovie: {},
     selectedMovieImage: "",
     user: {},
+    searchInput: "",
   },
   reducers: {
     resetMovieList: (state, action) => {
@@ -23,6 +24,12 @@ const ticketReducer = createSlice({
     setSelectedMovie: (state, action) => {
       state.selectedMovie = action.payload;
     },
+    setCurrentDateTime: (state, action) => {
+      state.currentDateTime = action.payload;
+      },
+    setSearchInput: (state, action) => {
+      state.searchInput = action.payload
+    }
     setLoggedInUser: (state, action) => {
       state.user = action.payload;
     },
@@ -39,5 +46,7 @@ export const {
   setSelectedMovie,
   setLoggedInUser,
   loggedOutUser,
+  setSearchInput, 
+  setCurrentDateTime 
 } = ticketReducer.actions;
 export default ticketReducer.reducer;

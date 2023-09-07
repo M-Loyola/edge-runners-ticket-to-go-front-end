@@ -1,0 +1,83 @@
+.reservation-card {
+    text-align: center;
+}
+
+
+.reservation-card img {
+    border-radius: 20px;
+}
+
+.reservation-details {
+    font-weight: bold;
+    text-align: left;
+}
+
+
+.reservationMain-container {
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-bottom: 5%;
+   
+}
+
+.ant-col {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+}
+
+.css-dev-only-do-not-override-190m0jy.ant-btn {
+    font-size: 14px;
+    height: 32px;
+    padding: 4px 15px;
+    border-radius: 6px;
+}
+h3{
+    text-align: center;
+}
+
+@media (min-width: 390px) {
+    .reservation-card img {
+        height: 100%;
+    }
+
+    .reservation-details .ant-typography {
+        font-size: 11px;
+    }
+    
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+    .reservation-card img {
+        height: 80%;
+    }
+
+    .reservation-details .ant-typography {
+        font-size: 16px;
+    }
+    .reservationMain-container {
+        margin-left: 10%;
+        margin-right: 10%;
+        
+    }
+}
+
+@media (min-width: 1001px) {
+    .reservation-card img {
+        align-items: center;
+        height: 500px;
+    }
+
+    .reservation-details .ant-typography {
+        font-size: 27px;
+    }
+    .reservationMain-container {
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+    h3{
+        font-size: 30px;
+    }
+}

@@ -6,22 +6,25 @@ import LandingDropdown from "./LandingDropdown";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieDetailsInCinema, getMoviesInCinema } from "../api/apiConfig";
-import {
+import { resetCinemaMovieList, setSearchInput, setSelectedMovie } from "../reducers/ticketReducer";
   resetCinemaMovieList,
   setSelectedMovie,
 } from "../reducers/ticketReducer";
 
 export const MovieList = () => {
   const [locationValue, setLocationValue] = useState("Manila");
-
   const dispatch = useDispatch();
+  const selectorSearchInput = useSelector(state => state.ticket.searchInput);
+  let hasMatch = false;
 
   const handleLocationChange = (location) => {
     setLocationValue(location.value);
+    dispatch(setSearchInput(""));
   };
   useEffect(() => {
     intializeMovieByLocation();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const intializeMovieByLocation = async () => {
     const moviesByCinema = await getMoviesInCinema();
     dispatch(resetCinemaMovieList(moviesByCinema.data));
@@ -49,18 +52,24 @@ export const MovieList = () => {
           .map((selectedCinema) =>
             selectedCinema.movieList
               .filter((movie) => movie.isShowing)
-              .map((movie) => (
-                <Col key={movie.id} xs={4} lg={4}>
+              .map((movie) => {
+                if (movie.title.includes(selectorSearchInput)) {
+                  hasMatch = true;
+                  return (
+                    <Col key={movie.id} xs={4} lg={4}>
                   <NavLink onClick={() => handleClickMovie(movie)} to={path}>
-                    <div className="movieList-holder">
-                      <img src={movie.image} alt={movie.title} />
-                      <p>{movie.title}</p>
-                      <p>{selectedCinema.name}</p>
-                    </div>
-                  </NavLink>
-                </Col>
-              ))
+                        <div className="movieList-holder">
+                          <img src={movie.image} alt={movie.title} />
+                          <p>{movie.title}</p>
+                          <p>{selectedCinema.name}</p>
+                        </div>
+                      </NavLink>
+                    </Col>
+                  ) 
+                }
+              })
           )}
+          {!hasMatch && (<div style={{textAlign: 'center'}}>No movies matched</div>)}
       </Row>
     </div>
   );
