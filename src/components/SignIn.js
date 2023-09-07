@@ -27,6 +27,7 @@ export const SignIn = () => {
         localStorage.setItem("user", JSON.stringify(response.data));
         const localUserData = localStorage.getItem("user");
         dispatch(setLoggedInUser(localUserData));
+        alert("Successfully loggedin ");
         navigate("/");
       })
       .catch(() => {
@@ -55,7 +56,7 @@ export const SignIn = () => {
         />
       </div>
       <button type="submit" onClick={handleBack}>
-        Proceed
+        Log In
       </button>
     </>
   );

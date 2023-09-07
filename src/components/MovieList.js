@@ -6,7 +6,10 @@ import LandingDropdown from "./LandingDropdown";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieDetailsInCinema, getMoviesInCinema } from "../api/apiConfig";
-import { resetCinemaMovieList, setSelectedMovie } from "../reducers/ticketReducer";
+import {
+  resetCinemaMovieList,
+  setSelectedMovie,
+} from "../reducers/ticketReducer";
 
 export const MovieList = () => {
   const [locationValue, setLocationValue] = useState("Manila");
@@ -25,17 +28,17 @@ export const MovieList = () => {
   };
   const handleClickMovie = (movie) => {
     getMovieDetailsInCinema(movie.id).then((response) => {
-      const data = {...response.data, image: movie.image};
+      const data = { ...response.data, image: movie.image };
       dispatch(setSelectedMovie(data));
-    })
-  }
+    });
+  };
   const moviesByLocation = useSelector((state) => state.ticket.cinemaMovieList);
+  const signedInData = localStorage.getItem("user");
+  const path = signedInData === null ? "/accountPage" : "/reservation";
   return (
     <div>
       <div className="movieList-container">
-        <h1 className="movieList-title">
-          NOW SHOWING!
-        </h1>
+        <h1 className="movieList-title">NOW SHOWING!</h1>
         <LandingDropdown
           onLocationChange={(location) => handleLocationChange(location)}
         />
@@ -48,7 +51,7 @@ export const MovieList = () => {
               .filter((movie) => movie.isShowing)
               .map((movie) => (
                 <Col key={movie.id} xs={4} lg={4}>
-                  <NavLink onClick={() => handleClickMovie(movie)} to="/reservation">
+                  <NavLink onClick={() => handleClickMovie(movie)} to={path}>
                     <div className="movieList-holder">
                       <img src={movie.image} alt={movie.title} />
                       <p>{movie.title}</p>
