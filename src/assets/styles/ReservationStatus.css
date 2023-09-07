@@ -1,0 +1,42 @@
+.reservation-card {
+    text-align: center;
+    height: fit-content !important;
+}
+
+.reservation-card img {
+    max-width: 100%;
+    border-radius: 20px;
+    padding: 10%
+}
+
+.reservation-details {
+    text-align: center;
+}
+
+.reservationMain-container {
+    background-color: blue;
+    border: 1px solid black;
+}
+
+.reservationMain-container .reservation-container {
+    background-color: white;
+    padding: 2%;
+}
+
+@media (min-width: 390px) {
+    .reservation-card img {
+        height: 60%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+    .reservation-card img {
+        height: 70%;
+    }
+}
+
+@media (min-width: 1001px) {
+    .reservation-card img {
+        height: 33.33%;
+    }
+}
