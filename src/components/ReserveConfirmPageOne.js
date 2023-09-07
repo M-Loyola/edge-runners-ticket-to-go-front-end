@@ -12,7 +12,7 @@ export const ReserveConfirmPageOne = () => {
     const [countdown, setCountdown] = useState(10);
     const navigate = useNavigate();
     const orderDetails = useLocation().state;
-    const userInfo = useSelector(state => state.ticket.user);
+    const userInfo = JSON.parse(localStorage.getItem("user"));
     const currentDateTime = useSelector((state) => state.ticket.currentDateTime);
     const deadlineDateTime = moment(currentDateTime).add(30, "m").format("MMMM DD, YYYY on h:mm A");
     useEffect(() => {

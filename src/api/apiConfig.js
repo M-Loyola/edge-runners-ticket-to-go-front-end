@@ -22,3 +22,11 @@ export const signIn = (emailAndPassword) => {
 export const signUp = (user) => {
   return api.post("/users/createUser", user);
 };
+
+export const getUserOrderList = (userId) => {
+  return api.get(`/users/${userId}/orders`);
+}
+
+export const updateOrderPaidStatus = (orderNumber) => {
+  return api.put(`/orders/${orderNumber}`);
+}

@@ -12,8 +12,7 @@ const ReservationPage = () => {
   const dispatch = useDispatch();
   const valToBePushed = useSelector((state) => state.ticket.selectedMovie);
   reservationDetails.push(valToBePushed);
-  console.log(valToBePushed);
-  const userInfo = useSelector((state) => state.ticket.user);
+  const userInfo = JSON.parse(localStorage.getItem("user"));
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedSeats, setSectedSeats] = useState([]);
   const navigate = useNavigate();
@@ -32,21 +31,20 @@ const ReservationPage = () => {
   const handleBack = () => {
     navigate("/");
   };
-  console.log(userInfo.id);
   const handleConfirmation = async () => {
-    console.log(userInfo, "ttrsetsetjk");
     const orderDetails = {
       title: reservationDetails[0].title,
       cinemaName: reservationDetails[0].cinemaName,
       schedule: reservationDetails[0].schedule,
       location: reservationDetails[0].location,
       reservedSeats: selectedSeats.join(","),
+      imageUrl: reservationDetails[0].image,
       duration: reservationDetails[0].duration,
-      isPayed: true,
+      isPayed: false,
       price: reservationDetails[0].price,
       quantity: selectedSeats.length,
       totalPrice: selectedSeats.length * reservationDetails[0].price,
-      user_id: userInfo.id,
+      userId: userInfo.id,
     };
 
     await creatNewOrder(orderDetails).then(async () => {
@@ -59,6 +57,31 @@ const ReservationPage = () => {
       });
     });
   };
+  const handlePayNow = async() => {
+    const orderDetails = {
+      title: reservationDetails[0].title,
+      cinemaName: reservationDetails[0].cinemaName,
+      schedule: reservationDetails[0].schedule,
+      location: reservationDetails[0].location,
+      reservedSeats: selectedSeats.join(","),
+      imageUrl: reservationDetails[0].image,
+      duration: reservationDetails[0].duration,
+      isPayed: true,
+      price: reservationDetails[0].price,
+      quantity: selectedSeats.length,
+      totalPrice: selectedSeats.length * reservationDetails[0].price,
+      userId: userInfo.id,
+    };
+    await creatNewOrder(orderDetails).then(async () => {
+      dispatch(setCurrentDateTime(new Date().toISOString()));
+      await updateOccupiedSeats(
+        reservationDetails[0].id,
+        selectedSeats.join(",")
+      ).then(() => {
+        navigate("/paymentConfirmationPageOne", { state: orderDetails });
+      });
+    });
+  }
   const hasNoSelectedSeats = () => {
     if (selectedSeats.length === 0) {
       return true;
@@ -149,8 +172,8 @@ const ReservationPage = () => {
           >
             Reserve now!
           </button>
-          <button className="button">Pay now!</button>
-          <br/><button className="back-button" onClick={handleBack}>
+          <button className="button" onClick={handlePayNow} disabled={hasNoSelectedSeats()} >Pay now!</button>
+          <button className="back-button" onClick={handleBack}>
             Back
           </button>
         </Card>
