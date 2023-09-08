@@ -6,6 +6,8 @@ import { creatNewOrder, updateOccupiedSeats } from "../api/apiConfig";
 import "../assets/styles/ReservationPage.css";
 import CinemaSeatingModal from "../components/CinemaSeatingModal";
 import { setCurrentDateTime } from "../reducers/ticketReducer";
+const moment = require("moment");
+
 
 const ReservationPage = () => {
   const reservationDetails = [];
@@ -144,7 +146,7 @@ const ReservationPage = () => {
                       Schedule:{" "}
                     </Col>
                     <Col span={16} className="content-col">
-                      {details.schedule}
+                    {moment(details.schedule).format("MMMM DD, YYYY on h:mm A")}
                     </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
