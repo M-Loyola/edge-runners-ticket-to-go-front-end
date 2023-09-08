@@ -49,7 +49,7 @@ export const UserAccount = () => {
         Logout
       </button>
       <button type="submit" className="button" onClick={handleBack}>
-        back
+        Back
       </button>
     </div>
   );

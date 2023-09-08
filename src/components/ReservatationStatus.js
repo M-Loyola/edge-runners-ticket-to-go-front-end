@@ -35,8 +35,8 @@ export const ReservationStatus = () => {
                             Movie Title: {reservation.title}<br />
                             Location: {reservation.location}<br />
                             Schedule: {moment(reservation.schedule).format("MMMM DD, YYYY on h:mm A")}<br />
-                            Status: {reservation.isPayed ? "Paid" : "Reserved"}<br />
-                            Reserved Seats: {reservation.reservedSeats}<br />
+                            Status: <span style={{color: reservation.isPayed ? "green" : "red"}}>{reservation.isPayed ? "Paid" : "Reserved"}</span><br />
+                            Reserved Seats: <span style={{color: 'cadetblue'}}>{reservation.reservedSeats}</span><br />
                             <div className="button-container">
                                 <NavLink><br />
                                     <Button disabled={reservation.isPayed ? true : false} onClick={() => onPayNowHandler(reservation.orderNumber)}>
