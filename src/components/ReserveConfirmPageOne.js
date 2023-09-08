@@ -31,17 +31,17 @@ export const ReserveConfirmPageOne = () => {
                 <Col span={24}>
                     <Text className="text-container">
                         Hello, {userInfo.firstName + " " + userInfo.lastName}<br /> 
-                        You've reserved a seat at {orderDetails.location} Cinema One, for the
-                        movie "{orderDetails.title}" scheduled <br />
-                        {moment(orderDetails.schedule).format("MMMM DD, YYYY on h:mm A")}
+                        You've reserved a seat at <span style={{color: 'cadetblue'}}>{orderDetails.cinemaName}, {orderDetails.location} </span>for the
+                        movie <span style={{color: 'cadetblue'}}>"{orderDetails.title}" </span>scheduled on &nbsp;
+                        <span style={{color: 'cadetblue'}}>{moment(orderDetails.schedule).format("MMMM DD, YYYY on h:mm A")}</span>
                     </Text>
                 </Col>
                 <Col span={24}>
                     <Text className="text-container">
                         The total cost for your <br />
-                        reservation is ₱{orderDetails.totalPrice}. To secure your <br />
+                        reservation is <span style={{color: 'green'}}>₱{orderDetails.totalPrice}. </span>To secure your <br />
                         seat, please make the payment
-                        before {deadlineDateTime}.<br /><br />
+                        before <span style={{color: 'red'}}>{deadlineDateTime}.</span><br /><br />
                     </Text>
                 </Col>
                 
